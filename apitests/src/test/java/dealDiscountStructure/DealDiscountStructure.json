@@ -1,0 +1,9 @@
+{
+        "discountStructureId": ##uuid,
+        "name": ##string,
+        "method": ##string,
+        "amount": ##number,
+        "discountMap": ##string,
+        "bookingNight": ##string,
+        "waiverAdditionalCost": ##string
+    }

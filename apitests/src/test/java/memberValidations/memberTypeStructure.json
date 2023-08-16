@@ -1,8 +1,0 @@
-{
-    BookingDiscountPercentage: '#number',
-    BookingDiscountProductId: '##uuid',
-    Description: '##string',
-    MemberTypeId: '#uuid',
-    Name: '#string',
-    Rank: '#number'
-}

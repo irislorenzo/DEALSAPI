@@ -1,4 +1,0 @@
-{
-    success: '#boolean',
-    message:  '##string'
-}

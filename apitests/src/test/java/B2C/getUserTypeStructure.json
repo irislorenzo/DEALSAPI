@@ -1,4 +1,0 @@
-{
-    eligible: '#boolean',
-    userType: '#string'
-}

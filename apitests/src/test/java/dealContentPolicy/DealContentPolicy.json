@@ -1,0 +1,18 @@
+ {
+        "id": ##uuid,
+        "name": ##string,
+        "description": ##string,
+        "dealType": ##string,
+        "policyItems": [
+            {
+                "id": ##uuid,
+                "label": ##string,
+                "value": ##string
+            },
+            {
+                "id": ##uuid,
+                "label": ##string,
+                "value": ##string
+            }
+        ]
+    }

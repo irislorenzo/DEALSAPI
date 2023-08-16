@@ -26,20 +26,7 @@ class ParallelNet6ExecutionTest {
 	// mvn test -Dtest=ParallelExecutionTest -Dkarate.env=test
     void testParallel() {
         Results results = Runner.path(
-        		"classpath:couponValidations"
-        		,"classpath:benefitsValidation"
-        		,"classpath:deviceValidation"
-        		,"classpath:fuelValidations"
-        		,"classpath:leaderboardValidation"
-        		,"classpath:loyaltyValidation"
-        		,"classpath:memberBenefitsValidation"
-        		,"classpath:memberRewardsValidation"
-        		,"classpath:membershipValidation"
-        		,"classpath:memberValidations"
-        		,"classpath:personalDetailsValidation"
-        		,"classpath:rewardsProgramValidation"
-        		,"classpath:subscriptionValidation"
-        		,"classpath:appIntegrationValidation"
+        		"classpath:B2C"
         	)
         		.outputCucumberJson(true)
         		.outputJunitXml(true)

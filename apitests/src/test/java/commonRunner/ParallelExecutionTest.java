@@ -26,22 +26,8 @@ class ParallelExecutionTest {
 	// mvn test -Dtest=ParallelExecutionTest -Dkarate.env=test
     void testParallel() {
         Results results = Runner.path(
-        		"classpath:couponValidations"
-        		,"classpath:benefitsValidation"
-        		,"classpath:deviceValidation"
-        		,"classpath:fuelValidations"
-        		,"classpath:leaderboardValidation"
-        		,"classpath:loyaltyValidation"
-        		,"classpath:memberBenefitsValidation"
-        		,"classpath:memberRewardsValidation"
-        		,"classpath:membershipValidation"
-        		,"classpath:memberValidations"
-        		,"classpath:personalDetailsValidation"
-        		,"classpath:rewardsProgramValidation"
-        		,"classpath:subscriptionValidation"
-        		,"classpath:memberSearchValidation"
-        		,"classpath:appIntegrationValidation"
-        		,"classpath:B2C"
+        		"src/test/java:dealContentPolicy"
+        	
         	)
         		.outputCucumberJson(true)
         		.outputJunitXml(true)
