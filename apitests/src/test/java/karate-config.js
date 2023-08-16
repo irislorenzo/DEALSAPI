@@ -39,7 +39,6 @@ function fn() {
     config.b2cUrl = 'https://test-authb2c-dhp-api-as.azurewebsites.net';
     config.commsUrl = 'https://test-communications-v2-dhp-api-as.azurewebsites.net/';
     config.subsUrl = 'https://test-subscribers-as.azurewebsites.net';
-    config.dealsUrl = 'https://dev-deals-v2-as.azurewebsites.net/';
   } else if(env == 'memberv2'){
 	    config.memberUrl = 'https://test-int-dhp-api-membership-net6.azurewebsites.net/';
 	    config.customerWebCdn = 'https://proddupe-strategicweb-cdn.azureedge.net';
@@ -58,4 +57,14 @@ function fn() {
 	    config.resource = 'https://discoveryparks.com.au/prod-int-api-v1';
 }
 
+
+  // we don't have a mocked environment but it's here in case we want one
+  if(env !== 'mock') {
+    // this will get a token once and use it for all tests
+    var result = karate.callSingle('classpath:signin/get-token-post.feature', config)
+    // this sets the header for all api calls
+    karate.configure('headers', { 'Authorization': result.token });
+    config.token = result.token
+  }
+  return config;
 }

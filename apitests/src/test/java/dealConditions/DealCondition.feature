@@ -1,6 +1,6 @@
 #Author: spalaniappan
 
-@b2c
+
 Feature: Deal Condition Entity validation
 
   Background: 

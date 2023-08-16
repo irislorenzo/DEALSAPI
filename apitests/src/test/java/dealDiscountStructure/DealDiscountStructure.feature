@@ -1,6 +1,6 @@
 #Author: spalaniappan
 
-@b2c
+
 Feature: Deal content policy validation
 
   Background: 
