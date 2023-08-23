@@ -10,7 +10,6 @@ Feature: Deal content policy validation
   
   
   Scenario: Create a Content policy
-  ### Create a condtion
     Given path 'api/dealcontentpolicy'
     When request
     """
@@ -83,4 +82,49 @@ Feature: Deal content policy validation
     Then status 204
     
     
-  
+
+   Scenario: Create Invalid condition request without name
+
+    Given path 'api/dealcontentpolicy'
+    When request
+    """
+   {
+  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa8",
+  "description": "Test policy",
+  "dealType": "standard",
+  "policyItems": [
+    {
+      "id": "3fa85f64-5717-4562-b3fc-2c963f66afa8",
+      "label": "string",
+      "value": "fixed"
+    }
+  ]
+}
+    """
+    When method post
+    Then status 400
+    * match response.errors == {"name":["The Name field is required."]}
+    
+    
+    
+    Scenario: Create Invalid condition request without Deal Type
+
+    Given path 'api/dealcontentpolicy'
+    When request
+    """
+   {
+  "id": "1e492045-eb21-44bb-95fa-3bf1f66e3e5d",
+  "name": "Po",
+  "description": "Test policy",
+  "policyItems": [
+    {
+      "id": "1e492045-eb21-44bb-95fa-3bf1f66e3e5d",
+      "label": "string",
+      "value": "fixed"
+    }
+  ]
+}
+    """
+    When method post
+    Then status 400
+    * match response.errors == {"dealType": ["Required property 'dealType' not found in JSON. Path '', line 1, position 180."]}

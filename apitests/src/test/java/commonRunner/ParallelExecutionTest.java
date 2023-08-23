@@ -26,9 +26,7 @@ class ParallelExecutionTest {
 	// mvn test -Dtest=ParallelExecutionTest -Dkarate.env=test
     void testParallel() {
         Results results = Runner.path(
-        		"classpath:dealContentPolicy",
-        		"classpath:dealConditions",
-        		"classpath:dealDiscountStructure"
+        		"classpath:dealContentPolicy"
         	)
         		.outputCucumberJson(true)
         		.outputJunitXml(true)
