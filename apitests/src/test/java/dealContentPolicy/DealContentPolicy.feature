@@ -5,7 +5,7 @@ Feature: Deal content policy validation
 
   Background: 
     * url dealsUrl
-    * def DealContentPolicy = read('../DealContentPolicy/DealContentPolicy.json')
+    * def DealContentPolicy = read('../dealContentPolicy/DealContentPolicy.json')
     
   
   
