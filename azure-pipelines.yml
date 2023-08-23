@@ -24,7 +24,7 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: 'apitests/target/karate-reports/karate-summary.html'
-    goals: 'mvn test -Dkarate.env=dev -Dtest=ParallelExecutionTest'
+    goals: 'test -Dkarate.env=dev -Dtest=ParallelExecutionTest'
 
 - task: PublishPipelineArtifact@1
   displayName: 'Publish Karate Reports for Deals API'
