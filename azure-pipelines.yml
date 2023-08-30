@@ -5,7 +5,7 @@
 
 schedules:
 - cron: '0 12 * * 0'
-  displayName: 3rd Party Scripts Test Run
+  displayName: Deals API Scripts Test Run
   branches:
     include:
     - main
@@ -63,10 +63,10 @@ steps:
        `"summary`": `"Test Robot`",
        `"sections`": [
            {
-               `"activityTitle`": `"Test Robot ran the 3rd Party API Tests in Test`",
+               `"activityTitle`": `"Test Robot ran the Deals API Tests in Test`",
                `"activitySubtitle`": `"Karate API Tests`",
                `"activityImage`": `"https://i.imgur.com/17mcTqV.png`",
-               `"activityText`": `"These tests ran against the 3rd party APIs in TEST`",
+               `"activityText`": `"These tests ran against the Deals APIs in TEST`",
                `"markdown`": true
            },
            {
