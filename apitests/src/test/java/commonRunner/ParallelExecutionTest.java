@@ -26,11 +26,12 @@ class ParallelExecutionTest {
 	// mvn test -Dtest=ParallelExecutionTest -Dkarate.env=test
     void testParallel() {
         Results results = Runner.path(
-        		"classpath:dealContentPolicy"
+        		"classpath:dealContentPolicy",
+        		"classpath:dealDiscountStructure"
         	)
         		.outputCucumberJson(true)
         		.outputJunitXml(true)
-        		.tags("~@deprecated", "~b2c", "~@3rdparty", "~@prod").parallel(3);
+        		.tags("~@deprecated", "~b2c", "~@3rdparty", "~@prod").parallel(2);
         // this will generate the cucumber html results
         generateReport(results.getReportDir());
         // Cause the runner to error if there are test failures
