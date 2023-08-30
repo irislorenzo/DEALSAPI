@@ -11,18 +11,18 @@ Feature: Deal content policy validation
       """
       {
           "id": "2c3675cd-c544-4573-9a85-cdbb7c31b448",
-          "name": "POLICY111",
-          "description": "POLICY111",
+          "name": "POLICYAUTOMATION",
+          "description": "POLICYAUTOMATION",
           "dealType": "standard",
           "policyItems": [
               {
                   "id": "2c3675cd-c544-4573-9a85-cdbb7c31b448",
-                  "label": "POLICY1-ITEM11",
+                  "label": "POLICYAUTOMATION-1",
                   "value": "fixed"
               },
               {
                   "id": "2c3675cd-c544-4573-9a85-cdbb7c31b449",
-                  "label": "POLICY1-ITEM12",
+                  "label": "POLICYAUTOMATION2",
                   "value": "fixed"
               }
           ]
@@ -50,18 +50,18 @@ Feature: Deal content policy validation
       """
       {
           "id": "2c3675cd-c544-4573-9a85-cdbb7c31b448",
-          "name": "POLICY111",
-          "description": "POLICY111",
+          "name": "POLICYAUTOMATIONUPDATED",
+          "description": "POLICYAUTOMATIONUPDATED",
           "dealType": "standard",
           "policyItems": [
               {
                   "id": "2c3675cd-c544-4573-9a85-cdbb7c31b448",
-                  "label": "POLICY1-ITEM11",
+                  "label": "POLICYAUTOMATION-1",
                   "value": "fixed"
               },
               {
                   "id": "2c3675cd-c544-4573-9a85-cdbb7c31b449",
-                  "label": "POLICY1-ITEM13",
+                  "label": "POLICYAUTOMATION2",
                   "value": "fixed"
               }
           ]

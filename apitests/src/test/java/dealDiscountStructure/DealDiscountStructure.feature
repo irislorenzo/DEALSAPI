@@ -52,88 +52,75 @@ Feature: Deal content policy validation
     When method put
     Then status 200
 
-
   Scenario: Delete discount structure using discount structure ID
     Given path 'api/DiscountStructure/e3e2201e-4936-ee11-b8f0-002248971d35'
     When method delete
     Then status 204
-    
-    
-  
-     Scenario: Send an Invalid request without name field
+
+  Scenario: Send an Invalid request without name field
     Given path 'api/DiscountStructure'
     When request
       """
       {
-  "method": "SETPRICE",
-  "amount": 10,
-  "discountMap": "1,1,1,1,1,1,1",
-  "bookingNight": "6,7",
-  "waiverAdditionalCost": 1
+      "method": "SETPRICE",
+      "amount": 10,
+      "discountMap": "1,1,1,1,1,1,1",
+      "bookingNight": "6,7",
+      "waiverAdditionalCost": 1
        }
       """
     When method post
     Then status 400
     * match response.errors == { "name": [  "The Name field is required."  ] }
-    
-    
 
-    
-    
-    
-     Scenario: Send an Invalid request if method is missing but amount is entered
+  Scenario: Send an Invalid request if method is missing but amount is entered
     Given path 'api/DiscountStructure'
     When request
       """
       {
-  "name": "Invalid request if method is missing but amount is entered",
-  "amount": 10,
-  "discountMap": "1,1,1,1,0,0,0",
-  "bookingNight": "4",
-  "waiverAdditionalCost": "{\"adults\":2,\"children\":0,\"pets\":0}"
-     }
+      "name": "Invalid request if method is missing but amount is entered",
+      "amount": 10,
+      "discountMap": "1,1,1,1,0,0,0",
+      "bookingNight": "4",
+      "waiverAdditionalCost": "{\"adults\":2,\"children\":0,\"pets\":0}"
+      }
       """
     When method post
     Then status 400
     * string temp = response
     * match temp contains 'Method is required.'
-    
-    
-    
-     Scenario: Send an Invalid request if amount is missing but method is entered
+
+  Scenario: Send an Invalid request if amount is missing but method is entered
     Given path 'api/DiscountStructure'
     When request
       """
       {
-  "name": "Invalid request if amount is missing but method is entered",
-  "method": "Fixed",
-  "discountMap": "1,1,1,1,0,0,0",
-  "bookingNight": "1,2,3,4",
-  "waiverAdditionalCost": "{\"adults\":2,\"children\":0,\"pets\":0}"
-     }
+      "name": "Invalid request if amount is missing but method is entered",
+      "method": "Fixed",
+      "discountMap": "1,1,1,1,0,0,0",
+      "bookingNight": "1,2,3,4",
+      "waiverAdditionalCost": "{\"adults\":2,\"children\":0,\"pets\":0}"
+      }
       """
     When method post
     Then status 400
     * string temp = response
     * match temp contains 'Amount is required.'
-   
-    
-   
-     Scenario: Send an Invalid request using non unique name
+
+  Scenario: Send an Invalid request using non unique name
     Given path 'api/DiscountStructure'
     When request
       """
       {
-  "name": "Invalid request using non unique name",
-  "method": "Setprice",
-  "amount": 0,
-  "discountMap": "1,1,1,1,1,1,1",
-  "bookingNight": "6,7",
-  "waiverAdditionalCost": "{\"adults\":2,\"children\":1,\"pets\":1}"
-    }
+      "name": "Invalid request using non unique name",
+      "method": "Setprice",
+      "amount": 0,
+      "discountMap": "1,1,1,1,1,1,1",
+      "bookingNight": "6,7",
+      "waiverAdditionalCost": "{\"adults\":2,\"children\":1,\"pets\":1}"
+      }
       """
     When method post
     Then status 409
     * string temp = response
     * match temp contains 'A Discount Structure with the same Name already exists.'
-    
