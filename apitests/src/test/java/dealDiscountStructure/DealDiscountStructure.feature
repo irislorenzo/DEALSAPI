@@ -23,7 +23,7 @@ Feature: Deal content policy validation
     Then status 201
     * match response == {"message":"Discount Structure created successfully."}
 
-  Scenario: Get discount structure with the discount structure ID
+  #### Get discount structure with the discount structure ID
     Given path 'api/DiscountStructure/e3e2201e-4936-ee11-b8f0-002248971d35'
     When method get
     Then status 200
