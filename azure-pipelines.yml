@@ -5,7 +5,7 @@
 
 schedules:
 - cron: '0 12 * * 0'
-  displayName: Deals API Scripts Test Run
+  displayName: Deals API Scripts Dev Run
   branches:
     include:
     - main
@@ -27,27 +27,27 @@ steps:
     goals: 'test -Dkarate.env=dev -Dtest=ParallelExecutionTest'
 
 - task: PublishPipelineArtifact@1
-  displayName: 'Publish Karate Reports for Deals API'
+  displayName: 'Publish Karate Reports for Deals API - DEV env'
   inputs:
     targetPath: $(System.DefaultWorkingDirectory)/apitests/target/karate-reports
     artifact: 'Karate reports'
   condition: succeededOrFailed()
 
 - task: PublishPipelineArtifact@1
-  displayName: 'Publish Cucumber Reports for Deals API'
+  displayName: 'Publish Cucumber Reports for Deals API- Dev Env'
   inputs:
     targetPath: $(System.DefaultWorkingDirectory)/apitests/target/cucumber-html-reports
     artifact: 'Cucumber reports'
   condition: succeededOrFailed()
 
 - task: PublishTestResults@2
-  displayName: 'Publish Deals API Results'
+  displayName: 'Publish Deals API Results- Dev Env'
   inputs:
     testResultsFiles: '*.xml'
     searchFolder: '$(System.DefaultWorkingDirectory)/apitests/target/karate-reports'
     mergeTestResults: true
     failTaskOnFailedTests: true
-    testRunTitle: '3rd Party API Tests'
+    testRunTitle: 'Deals API Results- DEV env'
   continueOnError: true
   condition: succeededOrFailed()
 
@@ -63,10 +63,10 @@ steps:
        `"summary`": `"Test Robot`",
        `"sections`": [
            {
-               `"activityTitle`": `"Test Robot ran the Deals API Tests in Test`",
+               `"activityTitle`": `"Test Robot ran the Deals API Tests in dev`",
                `"activitySubtitle`": `"Karate API Tests`",
                `"activityImage`": `"https://i.imgur.com/17mcTqV.png`",
-               `"activityText`": `"These tests ran against the Deals APIs in TEST`",
+               `"activityText`": `"These tests ran against the Deals APIs in dev`",
                `"markdown`": true
            },
            {
@@ -116,7 +116,7 @@ steps:
        `"summary`": `"Test Robot`",
        `"sections`": [
            {
-               `"activityTitle`": `"Test Robot ran the Deals API Tests in Test`",
+               `"activityTitle`": `"Test Robot ran the Deals API Tests in dev`",
                `"activitySubtitle`": `"Deals API Tests`",
                `"activityImage`": `"https://i.imgur.com/17mcTqV.png`",
                `"activityText`": `"These tests ran against the Deals APIs in DEV`",
