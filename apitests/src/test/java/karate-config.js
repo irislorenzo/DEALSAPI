@@ -39,6 +39,7 @@ function fn() {
     config.b2cUrl = 'https://test-authb2c-dhp-api-as.azurewebsites.net';
     config.commsUrl = 'https://test-communications-v2-dhp-api-as.azurewebsites.net/';
     config.subsUrl = 'https://test-subscribers-as.azurewebsites.net';
+    config.dealsUrl = 'https://test-deals-v2-as.azurewebsites.net/'
   } else if(env == 'memberv2'){
 	    config.memberUrl = 'https://test-int-dhp-api-membership-net6.azurewebsites.net/';
 	    config.customerWebCdn = 'https://proddupe-strategicweb-cdn.azureedge.net';
