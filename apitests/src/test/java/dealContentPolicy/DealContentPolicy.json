@@ -8,11 +8,6 @@
                 "id": ##uuid,
                 "label": ##string,
                 "value": ##string
-            },
-            {
-                "id": ##uuid,
-                "label": ##string,
-                "value": ##string
             }
         ]
     }

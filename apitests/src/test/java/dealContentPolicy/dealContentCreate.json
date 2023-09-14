@@ -1,0 +1,13 @@
+ {
+          "id": "2c3675cd-c544-4573-9a85-cdbb7c31b448",
+          "name": "POLICYAUTOMATION",
+          "description": "POLICYAUTOMATION",
+          "dealType": "standard",
+          "policyItems": [
+              {
+                  "id": "2c3675cd-c544-4573-9a85-cdbb7c31b448",
+                  "label": "POLICYAUTOMATION-1",
+                  "value": "fixed"
+              }
+          ]
+      }

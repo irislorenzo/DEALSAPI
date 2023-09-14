@@ -2,7 +2,7 @@
             "parkCode": ##string,
             "parkName": ##string,
             "brands": ##array,
-            "parkaddressStreet": ##boolean,
+            "parkaddressStreet": ##string,
             "parkaddressSuburb": ##string,
             "parkaddressPostcode": ##string,
             "parkaddressState": ##string,

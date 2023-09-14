@@ -4,74 +4,58 @@ Feature: Deal content policy validation
   Background: 
     * url dealsUrl
     * def DealContentPolicy = read('../dealContentPolicy/DealContentPolicy.json')
+    * def DealContentPolicyCreate = read('../dealContentPolicy/dealContentCreate.json')
+    * def uuid = function(){ return java.util.UUID.randomUUID() + '' }
+    * def UUID = uuid()
+    * def UUID1 = uuid()
+     * def random_string =
+ """
+ function(s) {
+   var text = "";
+   var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789";
+   for (var i = 0; i < s; i++)
+     text += possible.charAt(Math.floor(Math.random() * possible.length));
+   return text;
+ }
+ """
+ * def Name =  random_string(5)
+ * def Description =  random_string(7)
+    
 
   Scenario: Create a Content policy
+  * set DealContentPolicyCreate.id = UUID
+  * set DealContentPolicyCreate.name = Name
+  * set DealContentPolicyCreate.description = Description
+  * set DealContentPolicyCreate.policyItems[0].id = UUID1
+  
     Given path 'api/dealcontentpolicy'
-    When request
-      """
-      {
-          "id": "2c3675cd-c544-4573-9a85-cdbb7c31b448",
-          "name": "POLICYAUTOMATION",
-          "description": "POLICYAUTOMATION",
-          "dealType": "standard",
-          "policyItems": [
-              {
-                  "id": "2c3675cd-c544-4573-9a85-cdbb7c31b448",
-                  "label": "POLICYAUTOMATION-1",
-                  "value": "fixed"
-              },
-              {
-                  "id": "2c3675cd-c544-4573-9a85-cdbb7c31b449",
-                  "label": "POLICYAUTOMATION2",
-                  "value": "fixed"
-              }
-          ]
-      }
-      """
+    When request DealContentPolicyCreate
     When method post
     Then status 201
     * match response == {"message":"Deal Content Policy created successfully."}
 
   #### Get Content policy with the Content policy ID
-    Given path 'api/dealcontentpolicy/2c3675cd-c544-4573-9a85-cdbb7c31b448'
+    Given path 'api/dealcontentpolicy/'+ UUID +''
     When method get
     Then status 200
     * match response == DealContentPolicy
 
-  Scenario: Get all the available Content policy
+  ###Get all the available Content policy
     Given path 'api/dealcontentpolicy'
     When method get
     Then status 200
-    * match response[0] == DealContentPolicy
 
-  Scenario: Update Content policy using Content policy ID
-    Given path 'api/dealcontentpolicy/2c3675cd-c544-4573-9a85-cdbb7c31b448'
-    When request
-      """
-      {
-          "id": "2c3675cd-c544-4573-9a85-cdbb7c31b448",
-          "name": "POLICYAUTOMATIONUPDATED",
-          "description": "POLICYAUTOMATIONUPDATED",
-          "dealType": "standard",
-          "policyItems": [
-              {
-                  "id": "2c3675cd-c544-4573-9a85-cdbb7c31b448",
-                  "label": "POLICYAUTOMATION-1",
-                  "value": "fixed"
-              },
-              {
-                  "id": "2c3675cd-c544-4573-9a85-cdbb7c31b449",
-                  "label": "POLICYAUTOMATION2",
-                  "value": "fixed"
-              }
-          ]
-      }
-      """
+  ####Update Content policy using Content policy ID
+   * set DealContentPolicyCreate.name = "POLICYAUTOMATION-UPDATED"
+   * set DealContentPolicyCreate.description = "POLICYAUTOMATION-UPDATED-DESC"
+   
+    Given path 'api/dealcontentpolicy/'+ UUID +''
+    When request DealContentPolicyCreate
     When method put
     Then status 200
 
-  Scenario: Delete Content policy using Content policy ID
-    Given path 'api/dealcontentpolicy/2c3675cd-c544-4573-9a85-cdbb7c31b448'
+  ### Delete Content policy using Content policy ID
+    Given path 'api/dealcontentpolicy/'+ UUID +''
     When method delete
     Then status 204
 

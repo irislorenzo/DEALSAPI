@@ -32,8 +32,8 @@ Feature: Deal Template Entity validation
     Given path 'api/dealTemplate/'+ UUID +''
     When request CreateDealTemplate
     When method put
-    Then status 201
-    * match response == {"message":"Deal Template created successfully."}
+    Then status 200
+    * match response == DealTemplateSchema
     # delete a Deal Template
     Given path 'api/dealTemplate/'+ UUID +''
     When method delete

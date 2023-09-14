@@ -4,54 +4,41 @@ Feature: Deal Condition Entity validation
   Background: 
     * url dealsUrl
     * def dealCondition = read('../dealConditions/dealcondition.json')
+    * def dealConditionCreate = read('../dealConditions/dealConditionCreate.json')
+    * def uuid = function(){ return java.util.UUID.randomUUID() + '' }
+    * def UUID = uuid()
 
   Scenario: Create a new condtion
     ### Create a condtion
+    * set dealConditionCreate.conditionId = UUID
     Given path 'api/Condition'
-    When request
-      """
-      {
-      "code": "maxstayDaysAutomation",
-      "conditionId": "9944d786-d114-4b71-8c46-dadb41211c11",
-      "description": "Maximum stay in days Automation",
-      "conditionRuleId": "9944d786-d114-4b71-8c46-dadb41211c11",
-      "conditionValueType": "Integer"
-      }
-      """
+    When request dealConditionCreate
     When method post
     Then status 201
     * match response == {"message":"Condition created successfully."}
 
   #### Get condition with the condition ID
-    Given path 'api/Condition/9944d786-d114-4b71-8c46-dadb41211c11'
+    Given path 'api/Condition/'+ UUID +''
     When method get
     Then status 200
     * match response == dealCondition
 
-  Scenario: Get all the available conditons
+  ### Get all the available conditons
     Given path 'api/Condition'
     When method get
     Then status 200
     * match response[0] == dealCondition
 
-  Scenario: Update condition using condition ID
-    Given path 'api/Condition/9944d786-d114-4b71-8c46-dadb41211c11'
-    When request
-      """
-      {
-      "code": "maxstayDaysAutomationUpdated",
-      "conditionId": "9944d786-d114-4b71-8c46-dadb41211c11",
-      "description": "Maximum stay in days Automation",
-      "conditionRuleId": "9944d786-d114-4b71-8c46-dadb41211c11",
-      "conditionValueType": "Integer"
-      }
-      """
+ ### Update condition using condition ID
+ * set dealConditionCreate.code = "maxstayDaysAutomation-Updated"
+    Given path 'api/Condition/'+ UUID +''
+    When request dealConditionCreate
     When method put
     Then status 200
     * match response == dealCondition
 
-  Scenario: Delete condition using condition ID
-    Given path 'api/Condition/9944d786-d114-4b71-8c46-dadb41211c11'
+  ## Delete condition using condition ID
+    Given path 'api/Condition/'+ UUID +''
     When method delete
     Then status 204
 

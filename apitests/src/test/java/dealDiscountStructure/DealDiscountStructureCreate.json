@@ -1,0 +1,9 @@
+{
+          "discountStructureId": "e3e2201e-4936-ee11-b8f0-002248971d35",
+          "name": "test automation",
+          "method": "fixed",
+          "amount": 10,
+          "discountMap": "1,1,1,1,1,1,1",
+          "bookingNight": "1",
+          "waiverAdditionalCost": "{\"adults\":1,\"children\":1,\"pets\":1}"
+      }
