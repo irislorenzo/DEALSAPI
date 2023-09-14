@@ -21,7 +21,8 @@ function fn() {
     b2cUrl: 'https://dev-authb2c-dhp-api-as.azurewebsites.net/',
     commsUrl: 'https://dev-communications-v2-dhp-api-as.azurewebsites.net/',
     subsUrl: 'https://dev-subscribers-as.azurewebsites.net',
-    dealsUrl: 'https://dev-deals-v2-as.azurewebsites.net/'
+    dealsUrl: 'https://dev-deals-v2-as.azurewebsites.net/',
+    parksUrl: 'https://dev-parks-as.azurewebsites.net/'
   }
   if (env == 'dev') {
     
@@ -39,7 +40,8 @@ function fn() {
     config.b2cUrl = 'https://test-authb2c-dhp-api-as.azurewebsites.net';
     config.commsUrl = 'https://test-communications-v2-dhp-api-as.azurewebsites.net/';
     config.subsUrl = 'https://test-subscribers-as.azurewebsites.net';
-    config.dealsUrl = 'https://test-deals-v2-as.azurewebsites.net/'
+    config.dealsUrl = 'https://test-deals-v2-as.azurewebsites.net/';
+    config.parksUrl = 'https://test-parks-as.azurewebsites.net/';
   } else if(env == 'memberv2'){
 	    config.memberUrl = 'https://test-int-dhp-api-membership-net6.azurewebsites.net/';
 	    config.customerWebCdn = 'https://proddupe-strategicweb-cdn.azureedge.net';

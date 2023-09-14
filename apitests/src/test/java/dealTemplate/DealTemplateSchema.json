@@ -9,19 +9,7 @@
         },
         "dealContentPolicyId": ##uuid,
         "discountStructureId": ##uuid,
-        "brands": [
-            {
-        "brandId": ##uuid,
-        "code": ##string,
-        "name": ##string,
-        "description": ##string
-            }
-        ],
-        "conditions": [
-            {
-                "conditionId": ##uuid,
-                "conditionValue": ##string
-            }
-        ]
+        "brands": ## array,
+        "conditions": ## array
   
 }

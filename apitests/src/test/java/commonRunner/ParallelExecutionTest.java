@@ -28,7 +28,9 @@ class ParallelExecutionTest {
         Results results = Runner.path(
         		"classpath:dealContentPolicy",
         		"classpath:dealDiscountStructure",
-        		"classpath:dealConditions"
+        		"classpath:dealConditions",
+        		"classpath:parks",
+        		"classpath:dealTemplate"
         	)
         		.outputCucumberJson(true)
         		.outputJunitXml(true)
