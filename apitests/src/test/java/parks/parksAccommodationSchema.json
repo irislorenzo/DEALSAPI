@@ -1,0 +1,13 @@
+{
+    "accommodationId": ##string,
+    "typeCode": ##number,
+    "typeDescription": ##string,
+    "subTypeCode": ##number,
+    "subTypeDescription": ##string,
+    "displayName": ##string,
+    "pmsName": ##string,
+    "accommodationImage": ##string,
+    "sleepingCapacity": ##number,
+    "restrictions": ##array,
+    "amenities": ##array
+}
