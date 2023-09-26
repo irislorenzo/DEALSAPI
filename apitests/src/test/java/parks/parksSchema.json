@@ -6,5 +6,6 @@
             "parkaddressSuburb": ##string,
             "parkaddressPostcode": ##string,
             "parkaddressState": ##string,
-            "parkAddressCountry": ##string
+            "parkAddressCountry": ##string,
+	    "accommodations": ##array
  }
