@@ -11,37 +11,37 @@ Feature: Deal Template Entity validation
   Scenario: Deal template E2E
     # Create a Deal Template
     * set CreateDealTemplate.ID = UUID
-    Given path 'api/dealTemplate'
+    Given path 'api/deal-template'
     When request CreateDealTemplate
     When method post
     Then status 201
     * match response == {"message":"Deal Template created successfully."}
     # Get a Deal Template
-    Given path 'api/dealTemplate/'
+    Given path 'api/deal-template/'
     When request CreateDealTemplate
     When method get
     Then status 200
     * match response[0] == DealTemplateSchema
     # Get a Deal Template with specific ID
-    Given path 'api/dealTemplate/'+ UUID +''
+    Given path 'api/deal-template/'+ UUID +''
     When method get
     Then status 200
     * match response == DealTemplateSchema
     # Update a Deal Template
     * set CreateDealTemplate.name = "Deal Template Automation-updated"
-    Given path 'api/dealTemplate/'+ UUID +''
+    Given path 'api/deal-template/'+ UUID +''
     When request CreateDealTemplate
     When method put
     Then status 200
     * match response == DealTemplateSchema
     # delete a Deal Template
-    Given path 'api/dealTemplate/'+ UUID +''
+    Given path 'api/deal-template/'+ UUID +''
     When method delete
     Then status 204
 
   ###Negative Validations
   Scenario: Send Invalid request without Name
-    Given path 'api/dealTemplate'
+    Given path 'api/deal-template'
     When request
       """
       {
@@ -60,7 +60,7 @@ Feature: Deal Template Entity validation
     * match response.errors == {  "name": [ "The Name field is required." ]    }
 
   Scenario: Invalid request with 121 chars in promotional content
-    Given path 'api/dealTemplate'
+    Given path 'api/deal-template'
     When request
       """
       {
@@ -89,7 +89,7 @@ Feature: Deal Template Entity validation
     * match response.errors == {  "promotionalContent.Text": [ "The field Text must be a string or array type with a maximum length of '120'." ]    }
 
   Scenario: Invalid request with no promotional content
-    Given path 'api/dealTemplate'
+    Given path 'api/deal-template'
     When request
       """
       {
@@ -114,7 +114,7 @@ Feature: Deal Template Entity validation
     * match response.errors == {  "promotionalContent": [ "The PromotionalContent field is required." ]    }
 
   Scenario: Invalid request without Status
-    Given path 'api/dealTemplate'
+    Given path 'api/deal-template'
     When request
       """
       {
@@ -133,7 +133,7 @@ Feature: Deal Template Entity validation
     * match response.errors == {  "status": [ "The Status field is required." ]    }
 
   Scenario: Invalid request without Deal Type
-    Given path 'api/dealTemplate'
+    Given path 'api/deal-template'
     When request
       """
       {
@@ -152,7 +152,7 @@ Feature: Deal Template Entity validation
     * match response.errors == {  "dealType": [ "The DealType field is required." ]    }
 
   Scenario: Invalid request using incorrect value for Status
-    Given path 'api/dealTemplate'
+    Given path 'api/deal-template'
     When request
       """
       {
@@ -171,7 +171,7 @@ Feature: Deal Template Entity validation
     Then status 400
 
   Scenario: Invalid request using incorrect value for Deal Type
-    Given path 'api/dealTemplate'
+    Given path 'api/deal-template'
     When request
       """
       {
@@ -190,7 +190,7 @@ Feature: Deal Template Entity validation
     Then status 400
 
   Scenario: Invalid request using incorrect value for Deal Type
-    Given path 'api/dealTemplate'
+    Given path 'api/deal-template'
     When request
       """
       {
@@ -209,7 +209,7 @@ Feature: Deal Template Entity validation
     Then status 400
 
   Scenario: Invalid request without Discount structure
-    Given path 'api/dealTemplate'
+    Given path 'api/deal-template'
     When request
       """
       {
@@ -227,7 +227,7 @@ Feature: Deal Template Entity validation
     Then status 400
 
   Scenario: Invalid request without a Brand
-    Given path 'api/dealTemplate'
+    Given path 'api/deal-template'
     When request
       """
       {
@@ -252,7 +252,7 @@ Feature: Deal Template Entity validation
     Then status 400
 
   Scenario: Create a Deal Template with multiple brands
-    Given path 'api/dealTemplate'
+    Given path 'api/deal-template'
     When request
       """
       {
@@ -281,7 +281,7 @@ Feature: Deal Template Entity validation
     Then status 400
 
   Scenario: Create a deal template with multiple conditions
-    Given path 'api/dealTemplate'
+    Given path 'api/deal-template'
     When request
       """
       {
@@ -310,7 +310,7 @@ Feature: Deal Template Entity validation
     Then status 400
 
   Scenario: Create a deal template without conditions
-    Given path 'api/dealTemplate'
+    Given path 'api/deal-template'
     When request
       """
       {
@@ -329,7 +329,7 @@ Feature: Deal Template Entity validation
     Then status 400
 
   Scenario: Create a deal template using Deal Content Policy that has different Deal Type from the Deal Template
-    Given path 'api/dealTemplate'
+    Given path 'api/deal-template'
     When request
       """
       {

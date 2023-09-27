@@ -22,38 +22,38 @@ Feature: Deal content policy validation
   Scenario: Create a discount structure
   * set DealDiscountStructureCreate.discountStructureId = UUID
   * set DealDiscountStructureCreate.name = Name
-    Given path 'api/DiscountStructure'
+    Given path 'api/discount-structure'
     When request DealDiscountStructureCreate
     When method post
     Then status 201
     * match response == {"message":"Discount Structure created successfully."}
 
   #### Get discount structure with the discount structure ID
-    Given path 'api/DiscountStructure/'+ UUID +''
+    Given path 'api/discount-structure/'+ UUID +''
     When method get
     Then status 200
     * match response == DealDiscountStructure
 
   ### Get all the available discount structure
-    Given path 'api/DiscountStructure'
+    Given path 'api/discount-structure'
     When method get
     Then status 200
     * match response[0] == DealDiscountStructure
 
   ### Update discount structure using discount structure ID
   * set DealDiscountStructureCreate.name = "test automation- Updated"
-    Given path 'api/DiscountStructure/'+ UUID +''
+    Given path 'api/discount-structure/'+ UUID +''
     When request DealDiscountStructureCreate
     When method put
     Then status 200
 
    ###Delete discount structure using discount structure ID
-    Given path 'api/DiscountStructure/'+ UUID +''
+    Given path 'api/discount-structure/'+ UUID +''
     When method delete
     Then status 204
 
   Scenario: Send an Invalid request without name field
-    Given path 'api/DiscountStructure'
+    Given path 'api/discount-structure'
     When request
       """
       {
@@ -69,7 +69,7 @@ Feature: Deal content policy validation
     * match response.errors == { "name": [  "The Name field is required."  ] }
 
   Scenario: Send an Invalid request if method is missing but amount is entered
-    Given path 'api/DiscountStructure'
+    Given path 'api/discount-structure'
     When request
       """
       {
@@ -86,7 +86,7 @@ Feature: Deal content policy validation
     * match temp contains 'Method is required.'
 
   Scenario: Send an Invalid request if amount is missing but method is entered
-    Given path 'api/DiscountStructure'
+    Given path 'api/discount-structure'
     When request
       """
       {
@@ -103,7 +103,7 @@ Feature: Deal content policy validation
     * match temp contains 'Amount is required.'
 
   Scenario: Send an Invalid request using non unique name
-    Given path 'api/DiscountStructure'
+    Given path 'api/discount-structure'
     When request
       """
       {

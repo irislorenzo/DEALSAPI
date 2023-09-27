@@ -18,30 +18,30 @@ Feature: Deal content policy validation
    return text;
  }
  """
- * def Name =  random_string(5)
+ * def code =  random_string(5)
  * def Description =  random_string(7)
     
 
   Scenario: Create a Content policy
   * set DealContentPolicyCreate.id = UUID
-  * set DealContentPolicyCreate.name = Name
+  * set DealContentPolicyCreate.code = code
   * set DealContentPolicyCreate.description = Description
   * set DealContentPolicyCreate.policyItems[0].id = UUID1
   
-    Given path 'api/dealcontentpolicy'
+    Given path 'api/deal-content-policy'
     When request DealContentPolicyCreate
     When method post
     Then status 201
     * match response == {"message":"Deal Content Policy created successfully."}
 
   #### Get Content policy with the Content policy ID
-    Given path 'api/dealcontentpolicy/'+ UUID +''
+    Given path 'api/deal-content-policy/'+ UUID +''
     When method get
     Then status 200
     * match response == DealContentPolicy
 
   ###Get all the available Content policy
-    Given path 'api/dealcontentpolicy'
+    Given path 'api/deal-content-policy'
     When method get
     Then status 200
 
@@ -49,18 +49,18 @@ Feature: Deal content policy validation
    * set DealContentPolicyCreate.name = "POLICYAUTOMATION-UPDATED"
    * set DealContentPolicyCreate.description = "POLICYAUTOMATION-UPDATED-DESC"
    
-    Given path 'api/dealcontentpolicy/'+ UUID +''
+    Given path 'api/deal-content-policy/'+ UUID +''
     When request DealContentPolicyCreate
     When method put
     Then status 200
 
   ### Delete Content policy using Content policy ID
-    Given path 'api/dealcontentpolicy/'+ UUID +''
+    Given path 'api/deal-content-policy/'+ UUID +''
     When method delete
     Then status 204
 
   Scenario: Create Invalid Content policy request without name
-    Given path 'api/dealcontentpolicy'
+    Given path 'api/deal-content-policy'
     When request
       """
       {
@@ -81,7 +81,7 @@ Feature: Deal content policy validation
     * match response.errors == {"name":["The Name field is required."]}
 
   Scenario: Create Invalid Content policy request without Deal Type
-    Given path 'api/dealcontentpolicy'
+    Given path 'api/deal-content-policy'
     When request
       """
       {

@@ -7,11 +7,11 @@
             "image": "https://test.photos/200",
             "text": "test"
         },
-        "dealContentPolicyId": "fdf326b3-e737-ee11-b8f0-002248971d34",
-        "discountStructureId": "73ee2f6b-0041-44f9-b9d7-ccbce7ec2f67",
+        "dealContentPolicyId": "80402dad-d13c-4a1c-8af6-0f5a774a09d6",
+        "discountStructureId": "4d9fca01-f051-ee11-9938-000d3ad19d08",
         "brands": [
             {
-        "brandId": "5b03e66d-d842-ee11-9937-000d3a6a33fb",
+        "brandId": "0f3ac7fd-f151-ee11-9938-000d3ad19d08",
         "code": "DHP",
         "name": "Discovery Holiday Parks",
         "description": "Test brand"
@@ -19,8 +19,8 @@
         ],
         "conditions": [
             {
-                "conditionId": "b92e77d8-e734-ee11-b8f0-002248971d34",
-                "conditionValue": "string"
+                "conditionId": "a5695ccb-c93c-ee11-b8f0-002248971d01",
+                "conditionValue": "5"
             }
         ]
   
