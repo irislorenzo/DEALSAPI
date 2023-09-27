@@ -2,7 +2,7 @@
         "dealId": ##uuid,
         "code": ##string,
         "description": ##string,
-        "status": ##string,
+        "dealStatus": ##string,
         "dealType": ##string,
         "parkCode": ##string,
         "promotionalContent": ##object,

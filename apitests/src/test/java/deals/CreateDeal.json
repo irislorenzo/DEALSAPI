@@ -2,7 +2,7 @@
         "dealId": "a702d66d-a844-40a0-8c9f-b497b429b3ef",
         "code": "SIVATEST3",
         "description": "SIVA RETEST",
-        "status": "active",
+        "dealStatus": "active",
         "dealType": "standard",
         "parkCode": "SADO",
         "promotionalContent": {
@@ -24,10 +24,10 @@
         ],
         "dealAvailability": {
             
-"bookingDateRange": ["2023-10-10T00:00:00Z", "2023-09-30T23:59:59Z"], 
-"stayDateRange": ["2023-10-01T00:00:00Z", "2023-09-30T23:59:59Z"], 
+"bookingDateRange": ["2023-10-10T00:00:00Z", "2023-10-30T23:59:59Z"], 
+"stayDateRange": ["2023-10-01T00:00:00Z", "2023-10-30T23:59:59Z"], 
 "blackoutDateRanges": [ 
-   ["2023-10-01T00:00:00Z", "2023-09-30T23:59:59Z"]
+   ["2023-10-01T00:00:00Z", "2023-10-30T23:59:59Z"]
      ]
 
 },
