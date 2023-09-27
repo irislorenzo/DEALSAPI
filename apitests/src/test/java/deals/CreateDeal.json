@@ -1,27 +1,52 @@
-{
-        "id": "fdf326b3-e737-ee11-b8f0-002248971d34",
-        "name": "Deal Template Automation",
-        "status": "inactive",
+ {
+        "dealId": "a702d66d-a844-40a0-8c9f-b497b429b3ef",
+        "code": "SIVATEST3",
+        "description": "SIVA RETEST",
+        "status": "active",
         "dealType": "standard",
+        "parkCode": "SADO",
         "promotionalContent": {
             "image": "https://test.photos/200",
             "text": "test"
         },
-        "dealContentPolicyId": "80402dad-d13c-4a1c-8af6-0f5a774a09d6",
-        "discountStructureId": "4d9fca01-f051-ee11-9938-000d3ad19d08",
-        "brands": [
+        "discountStructureId": "eb901d4b-fb51-ee11-9938-000d3ad19d08",
+        "dealConditions": [
             {
-        "brandId": "0f3ac7fd-f151-ee11-9938-000d3ad19d08",
-        "code": "DHP",
-        "name": "Discovery Holiday Parks",
-        "description": "Test brand"
+                "conditionId": "a5695ccb-c93c-ee11-b8f0-002248971d37",
+                "dealId": "c9b3cc29-4c5b-ee11-9938-000d3ad19d08",
+                "conditionValue": "5"
+            },
+            {
+                "conditionId": "46a40c41-84c8-4435-a596-d7bd65c2ce92",
+                "dealId": "c9b3cc29-4c5b-ee11-9938-000d3ad19d08",
+                "conditionValue": "4"
             }
         ],
-        "conditions": [
-            {
-                "conditionId": "a5695ccb-c93c-ee11-b8f0-002248971d01",
-                "conditionValue": "5"
-            }
-        ]
-  
-}
+        "dealAvailability": {
+            
+"bookingDateRange": ["2023-10-10T00:00:00Z", "2023-09-30T23:59:59Z"], 
+"stayDateRange": ["2023-10-01T00:00:00Z", "2023-09-30T23:59:59Z"], 
+"blackoutDateRanges": [ 
+   ["2023-10-01T00:00:00Z", "2023-09-30T23:59:59Z"]
+     ]
+
+},
+        "hidden": 0,
+        "promocode": "string",
+        "publishDatetime": "2023-09-30T01:43:05.11",
+        "withdrawalDatetime": "2023-10-30T01:43:05.11",
+        "checkInDays": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0
+        ],
+        "parkPolicyConditions": "string",
+        "accommodationInclusionCondition": "all",
+        "dealAccommodations": null,
+        "dealCampaign": 0,
+        "dealApprovalStatus": "drafted"
+    }
