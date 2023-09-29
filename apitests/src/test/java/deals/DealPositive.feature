@@ -54,7 +54,7 @@ Feature: Deal Entity validation
     Then status 204
 
     
-   Scenario: Deal conditions valiadtion
+   Scenario: Deal conditions validation
    
    ## Create a deal condition
     Given path '/api/deals/c7386e2d-86ea-41c0-8d52-5948ca42a791/conditions'
