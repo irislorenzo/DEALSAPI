@@ -1,0 +1,22 @@
+ {
+        "dealId": ##uuid,
+        "code": ##string,
+        "description": ##string,
+        "dealStatus": ##string,
+        "dealType": ##string,
+        "parkCode": ##string,
+        "promotionalContent": ##object,
+        "discountStructureId": ##uuid,
+        "dealConditions": ##array,
+        "dealAvailability": ##object,
+        "hidden": ##number,
+        "promocode": ##string,
+        "publishDatetime": ##string,
+        "withdrawalDatetime": ##string,
+        "checkInDays": ##array,
+        "parkPolicyConditions": ##string,
+        "accommodationInclusionCondition": ##string,
+        "dealAccommodations": ##string,
+        "dealCampaign":##number,
+        "dealApprovalStatus": ##string
+    }

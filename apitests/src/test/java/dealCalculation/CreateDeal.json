@@ -1,0 +1,52 @@
+{
+        "code": ##string,
+        "description": ##string,
+        "dealStatus": ##string,
+        "dealType": ##string,
+        "parkCode": ##string,
+        "promotionalContent": {
+            "image": ##string,
+            "text": ##string
+        },
+        "discountStructureId": "1620a2ed-586d-ee11-9938-000d3ad19437",
+        "dealConditions": [
+            {
+                "conditionId": "2c059b3e-856c-ee11-9938-000d3ad19437",
+                "conditionValue": "1"
+            }
+        ],
+        "dealAvailability": {
+            "bookingDateRange": [
+                "2023-10-19T00:00:00+00:00",
+                "2024-12-31T23:59:59+00:00"
+            ],
+            "stayDateRange": [
+                "2023-10-19T00:00:00+00:00",
+                "2024-02-28T23:59:59+00:00"
+            ],
+            "blackoutDateRanges": [
+                [
+                    "2023-12-30T00:00:00Z",
+                    "2023-12-31T23:59:59Z"
+                ]
+            ]
+        },
+        "hidden": false,
+        "promocode": "string",
+        "publishDatetime": "2023-10-19T01:43:05.11",
+        "withdrawalDatetime": "2023-11-30T01:43:05.11",
+        "checkInDays": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+        ],
+        "parkPolicyConditions": ##string,
+        "accommodationInclusionCondition": "All",
+        "dealAccommodations": null,
+        "dealCampaign": ##number,
+        "dealApprovalStatus": "approved"
+    }
