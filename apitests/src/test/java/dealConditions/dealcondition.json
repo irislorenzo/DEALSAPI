@@ -1,5 +1,5 @@
 {
-        "conditionId": ##uuid,
+        "id": ##uuid,
         "code": ##string,
         "description": ##string,
         "conditionRuleId": ##uuid,

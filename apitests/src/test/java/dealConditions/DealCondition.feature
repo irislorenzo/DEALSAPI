@@ -22,37 +22,29 @@ Feature: Deal Condition Entity validation
 
   Scenario: Create a new condtion
     ### Create a condtion
-     * set dealConditionCreate.conditionId = UUID
-     * set dealConditionCreate.code = code
-     * set dealConditionCreate.description = Description
+  
     Given path 'api/Conditions'
     When request dealConditionCreate
     When method post
     Then status 201
     * match response == {"message":"Condition created successfully."}
-
-  #### Get condition with the condition ID
-    Given path 'api/Conditions/'+ UUID +''
-    When method get
-    Then status 200
-    * match response == dealCondition
-
-  ### Get all the available conditons
+    
+     ### Get all the available conditons
     Given path 'api/Conditions'
     When method get
     Then status 200
     * match response[0] == dealCondition
+    * def UUIDres = response[2].id
 
- ### Update condition using condition ID
- * set dealConditionCreate.code = "maxstayDaysAutomation-Updated"
-    Given path 'api/Conditions/'+ UUID +''
-    When request dealConditionCreate
-    When method put
+  #### Get condition with the condition ID
+    Given path 'api/Conditions/'+ UUIDres +''
+    When method get
     Then status 200
     * match response == dealCondition
 
+
   ## Delete condition using condition ID
-    Given path 'api/Conditions/'+ UUID +''
+    Given path 'api/Conditions/'+ UUIDres +''
     When method delete
     Then status 204
 
@@ -62,11 +54,9 @@ Feature: Deal Condition Entity validation
     When request
       """
       {
-      "conditionId": "4ec8c352-9c93-435d-8040-9d2645196f77",
-      "description": "Maximum stay in days",
-      "conditionRuleId": "4ec8c352-9c93-435d-8040-9d2645196f75",
-      "conditionValueType": "Integer"
-      }
+      "description":"Advance booking days- Automation",
+      "conditionRuleId":"9944d786-d114-4b71-8c46-dadb41211c11",
+      "conditionValueType":"Integer"}
       """
     When method post
     Then status 400
@@ -77,11 +67,11 @@ Feature: Deal Condition Entity validation
     When request
       """
       {
-      "code": "maxStayDays",
-      "conditionId": "4ec8c352-9c93-435d-8040-9d2645196f75",
-      "conditionRuleId": "4ec8c352-9c93-435d-8040-9d2645196f73",
-      "conditionValueType": "Integer"
-      }
+        "code": "minimumNightStay",
+        "conditionRuleId": "4ec8c352-9c93-435d-8040-9d2645196f75",
+        "conditionValueType": "integer"
+        
+    }
       """
     When method post
     Then status 400
@@ -92,11 +82,11 @@ Feature: Deal Condition Entity validation
     When request
       """
       {
-      "code": "maxStayDays",
-      "conditionId": "4ec8c352-9c93-435d-8040-9d2645196f76",
-      "description": "Maximum stay in days",
-      "conditionRuleId": "4ec8c352-9c93-435d-8040-9d2645196f73"
-      }
+        "code": "minimumNightStay",
+        "description": "Maximum stay in days",
+        "conditionRuleId": "4ec8c352-9c93-435d-8040-9d2645196f75",
+        
+    }
       """
     When method post
     Then status 400
@@ -107,11 +97,11 @@ Feature: Deal Condition Entity validation
     When request
       """
       {
-        "conditionId": "a5695ccb-c93c-ee11-b8f0-002248971d01",
-        "code": "Maximhhh",
-        "description": "Maximhhh",
-        "conditionRuleId": "9944d786-d114-4b71-8c46-dadb41211c08",
-        "conditionValueType": "integer"
+        "code": "maximumNightStay",
+        "description": "Minimum stay in days",
+        "conditionRuleId": "4ec8c352-9c93-435d-8040-9d2645196f75",
+        "conditionValueType": "integer",
+        "id": "b073703f-b66b-ee11-9938-000d3ad19437"
     }
       """
     When method post

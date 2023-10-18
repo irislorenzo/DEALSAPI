@@ -5,5 +5,6 @@
         "amount": ##number,
         "discountMap": ##string,
         "bookingNight": ##string,
-        "waiverAdditionalCost": ##string
+        "waiverAdditionalCost": ##string,
+        "id": ##uuid
     }

@@ -72,7 +72,7 @@ Feature: Deal Template Entity validation
       "text": "6xQddBIGhvuvioHdgC4x6ghlK2jvmtixLNEmGlzu5WFQe6fQFiR7hzWDSwO9KEXlMzpGHI7744Vz1YtMT3L9MLgYh9Ug9SeOa6mSEMPyHu0qzLTJQ15PDICEOI6WjNpWIygrAbf3RhcBlk6G0wbzWdJWX4ocrewM6HKVPoxHqq8Cquhkz23qWk3P1BGYSoMigFm6yQdee"
       },
       "dealContentPolicyId": "29bf42b0-a535-ee11-b8f0-002248971d34",
-      "discountStructureId": "74370d02-4636-ee11-b8f0-002248971d34",
+      "discountStructureId": "4d9fca01-f051-ee11-9938-000d3ad19d08",
       "brands": [{
               "brandId": "5b03e66d-d842-ee11-9937-000d3a6a33fb",
               "code": "DHP",

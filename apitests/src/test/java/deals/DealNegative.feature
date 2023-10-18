@@ -100,7 +100,7 @@ Feature: Deal Entity negative validation
     When request CreateDeal
     When method post
     Then status 400
-    * match response == "Publish date and Withdrawal date should not be in the past."
+    * match response.[0].errorMessage == "Publish date and Withdrawal date should not be in the past."
     
     Scenario: Create a deal without Check In Days
     ## Create a Deal
@@ -112,7 +112,7 @@ Feature: Deal Entity negative validation
     When request CreateDeal
     When method post
     Then status 400
-    * match response.errors == {"checkInDaysData":["The CheckInDaysData field is required."]}
+    * match response.errors == {"checkInDays":["The CheckInDays field is required."]}
     
     Scenario: Create a deal without Accommodation Inclusion Condition
     ## Create a Deal
@@ -148,7 +148,7 @@ Feature: Deal Entity negative validation
     When request CreateDeal
     When method post
     Then status 400
-    * match response.errors == {"approvalStatus":["The ApprovalStatus field is required."]}        
+    * match response.errors == {"dealApprovalStatus":["The DealApprovalStatus field is required."]}        
     
     Scenario: Create a deal with an existing Code
     ## Create a Deal
@@ -164,6 +164,6 @@ Feature: Deal Entity negative validation
     Given path 'api/deals'
     When request CreateDeal
     When method post
-    Then status 409
+    Then status 400
     
-    * match response == "Code already exists."              
+    * match response == [{"propertyName":"Code","errorMessage":"The specified Code already exists.","severity":"error"}]             

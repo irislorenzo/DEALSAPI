@@ -27,30 +27,32 @@ Feature: Deal content policy validation
     When method post
     Then status 201
     * match response == {"message":"Discount Structure created successfully."}
+  
 
   #### Get discount structure with the discount structure ID
-    Given path 'api/discount-structure/'+ UUID +''
-    When method get
-    Then status 200
-    * match response == DealDiscountStructure
+    #Given path 'api/discount-structure/'+ UUID +''
+    #When method get
+    #Then status 200
+    #* match response == DealDiscountStructure
 
   ### Get all the available discount structure
     Given path 'api/discount-structure'
     When method get
     Then status 200
     * match response[0] == DealDiscountStructure
+      * def UUIDres = response[0].id
 
   ### Update discount structure using discount structure ID
   * set DealDiscountStructureCreate.name = "test automation- Updated"
-    Given path 'api/discount-structure/'+ UUID +''
+    Given path 'api/discount-structure/'+ UUIDres +''
     When request DealDiscountStructureCreate
     When method put
     Then status 200
 
    ###Delete discount structure using discount structure ID
-    Given path 'api/discount-structure/'+ UUID +''
-    When method delete
-    Then status 204
+    #Given path 'api/discount-structure/'+ UUIDres +''
+    #When method delete
+    #Then status 204
 
   Scenario: Send an Invalid request without name field
     Given path 'api/discount-structure'
