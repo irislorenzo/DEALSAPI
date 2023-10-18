@@ -21,7 +21,7 @@ Feature: Deal Entity validation
  * def code =  random_string(5)
  * def Description =  random_string(7)
 
-  #Scenario: Deal E2E
+  Scenario: Deal E2E
     ## Create a Deal Template
     * set CreateDeal.dealId = UUID
     * set CreateDeal.code = code
@@ -57,26 +57,25 @@ Feature: Deal Entity validation
    Scenario: Deal conditions validation
    
    ## Create a deal condition
-    Given path '/api/deals/c7386e2d-86ea-41c0-8d52-5948ca42a791/conditions'
+    Given path '/api/deals/78fef5c5-7cf4-4c84-9ced-c2d6a6d6b921/conditions'
     When request
     """
-    {
-                "conditionId": "a5695ccb-c93c-ee11-b8f0-002248971d01",
-                "dealId": "c7386e2d-86ea-41c0-8d52-5948ca42a791",
+   [{
+                "conditionId": "b073703f-b66b-ee11-9938-000d3ad19437",
                 "conditionValue": "4"
-      }
+}]
     """
     When method post
     Then status 201
-    * match response == {"message":"Deal Condition created successfully."}
+    * match response == {"message":"Deal Condition(s) created successfully."}
     
     ## Get a deal condition
-    Given path '/api/deals/c7386e2d-86ea-41c0-8d52-5948ca42a791/conditions'
+    Given path '/api/deals/78fef5c5-7cf4-4c84-9ced-c2d6a6d6b921/conditions'
     When method get
     Then status 200
    
    ## Delete a deal condition
-   Given path 'api/deals/c7386e2d-86ea-41c0-8d52-5948ca42a791/conditions/a5695ccb-c93c-ee11-b8f0-002248971d01'
+   Given path 'api/deals/78fef5c5-7cf4-4c84-9ced-c2d6a6d6b921/conditions/b073703f-b66b-ee11-9938-000d3ad19437'
     When method delete
     Then status 204
     

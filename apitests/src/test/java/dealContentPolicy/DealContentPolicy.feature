@@ -20,12 +20,14 @@ Feature: Deal content policy validation
  """
  * def code =  random_string(5)
  * def Description =  random_string(7)
+  * def Name =  random_string(7)
     
 
   Scenario: Create a Content policy
   * set DealContentPolicyCreate.id = UUID
   * set DealContentPolicyCreate.code = code
   * set DealContentPolicyCreate.description = Description
+   * set DealContentPolicyCreate.name = Name
   * set DealContentPolicyCreate.policyItems[0].id = UUID1
   
     Given path 'api/deal-content-policy'

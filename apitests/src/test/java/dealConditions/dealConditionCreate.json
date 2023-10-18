@@ -1,7 +1,6 @@
  {
-      "code": "maxstayDaysAutomation",
-      "conditionId": "9944d786-d114-4b71-8c46-dadb41211c11",
-      "description": "Maximum stay in days Automation",
+      "code": "2",
+      "description": "Advance booking days-Automation",
       "conditionRuleId": "9944d786-d114-4b71-8c46-dadb41211c11",
       "conditionValueType": "Integer"
  }

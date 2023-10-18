@@ -9,32 +9,26 @@
             "image": "https://test.photos/200",
             "text": "test"
         },
-        "discountStructureId": "eb901d4b-fb51-ee11-9938-000d3ad19d08",
+        "discountStructureId": "a2e3f78c-3c66-ee11-9938-000d3ad19437",
         "dealConditions": [
             {
-                "conditionId": "a5695ccb-c93c-ee11-b8f0-002248971d37",
-                "dealId": "c9b3cc29-4c5b-ee11-9938-000d3ad19d08",
-                "conditionValue": "5"
-            },
-            {
-                "conditionId": "46a40c41-84c8-4435-a596-d7bd65c2ce92",
-                "dealId": "c9b3cc29-4c5b-ee11-9938-000d3ad19d08",
+                "conditionId": "b073703f-b66b-ee11-9938-000d3ad19437",
                 "conditionValue": "4"
             }
         ],
         "dealAvailability": {
             
-"bookingDateRange": ["2023-10-10T00:00:00Z", "2023-10-30T23:59:59Z"], 
-"stayDateRange": ["2023-10-01T00:00:00Z", "2023-10-30T23:59:59Z"], 
+"bookingDateRange": ["2024-10-10T00:00:00Z", "2028-10-30T23:59:59Z"], 
+"stayDateRange": ["2024-10-01T00:00:00Z", "2028-10-30T23:59:59Z"], 
 "blackoutDateRanges": [ 
-   ["2023-10-01T00:00:00Z", "2023-10-30T23:59:59Z"]
+   ["2024-10-01T00:00:00Z", "2028-10-30T23:59:59Z"]
      ]
 
 },
         "hidden": 0,
         "promocode": "string",
-        "publishDatetime": "2023-09-30T01:43:05.11",
-        "withdrawalDatetime": "2023-10-30T01:43:05.11",
+        "publishDatetime": "2024-09-30T01:43:05.11",
+        "withdrawalDatetime": "2024-10-30T01:43:05.11",
         "checkInDays": [
             1,
             1,

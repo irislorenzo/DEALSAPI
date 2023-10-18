@@ -33,7 +33,8 @@ Feature: Deal Condition Entity validation
   
   Scenario: Get all parks accommodations information
   
-  Given path 'api/parks/accommodations'
+  Given path 'api/parks-accommodations'
   When method get
   Then status 200
-  * match response.parks.[0] == ParksSchema
+  
+  

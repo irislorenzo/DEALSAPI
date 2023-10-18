@@ -1,5 +1,5 @@
  {
-        "dealId": ##uuid,
+        "id": ##uuid,
         "code": ##string,
         "description": ##string,
         "dealStatus": ##string,
@@ -9,7 +9,7 @@
         "discountStructureId": ##uuid,
         "dealConditions": ##array,
         "dealAvailability": ##object,
-        "hidden": ##number,
+        "hidden": ##boolean,
         "promocode": ##string,
         "publishDatetime": ##string,
         "withdrawalDatetime": ##string,
