@@ -42,6 +42,7 @@ function fn() {
     config.subsUrl = 'https://test-subscribers-as.azurewebsites.net';
     config.dealsUrl = 'https://test-deals-v2-as.azurewebsites.net/';
     config.parksUrl = 'https://test-parks-as.azurewebsites.net/';
+    config.dealCalcUrl = 'https://test-deals-v2-calc-as.azurewebsites.net/';
   } else if(env == 'memberv2'){
 	    config.memberUrl = 'https://test-int-dhp-api-membership-net6.azurewebsites.net/';
 	    config.customerWebCdn = 'https://proddupe-strategicweb-cdn.azureedge.net';
