@@ -1,0 +1,31 @@
+{
+   "accommodationRequest": {
+    "propertyCode": "TEST",
+    "accommodationType": "cabin",
+    "arrive": "2024-01-08",
+    "depart": "2024-01-10",
+    "adults": 2,
+    "kids":0,
+    "Infants":0,
+    "promocode":"15DollarOff749"
+  },
+  "guestList": [
+    {
+      "guestId": "test",
+      "guestTypeCode": "Adult",
+      "individual": {
+        "givenName": "test",
+        "surname": "test"
+      },
+      "loyaltyProgramAccount": [
+          {
+            "programType": "string",
+            "programCode": "string",
+            "accountNumber": "string",
+            "tierCode": "NONE",
+            "tierName": "string"
+          }
+      ]
+    }
+  ]
+}
