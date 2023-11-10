@@ -7,9 +7,10 @@ function fn() {
   var config = {
     env: env,
     memberUrl: 'http://dev-int-dhp-api-membership.azurewebsites.net/',
-    authUrl: 'https://login.microsoftonline.com/1400c903-3a54-41dd-a597-241ce11262da/oauth2/token',
-    client_id: '64c35ac9-496b-4ffa-9cc1-369bf75e4ace',
-    client_secret: 'CZ9CAueVi+SEESpGdm4R+0aq5fR0cIJGu6t+iluWHgg=',
+    authUrl: 'https://login.microsoftonline.com/1400c903-3a54-41dd-a597-241ce11262da/oauth2/v2.0/token',
+    client_id: 'b7d4b085-65dd-4d9d-a807-9ed8a713f55e',
+    client_secret: '7pm8Q~DSSaQulIANA1id~CACaa3xLq7-mUOWMcFN',
+    scope: 'aca9b1e1-2f23-4e09-a2b0-b10ae7b6034b/.default',
     resource: 'https://discoveryparks.com.au/dev-int-api-v1',
     customerWebCdn: 'https://proddupe-strategicweb-cdn.azureedge.net',
     crmWebUrl: 'https://discoveryparksdev.crm6.dynamics.com/api/data/v8.2',
@@ -29,8 +30,10 @@ function fn() {
   } else if (env == 'test') {
     config.memberUrl = 'http://test-int-dhp-api-membership.azurewebsites.net/';
     config.customerWebCdn = 'https://proddupe-strategicweb-cdn.azureedge.net';
-    config.client_id = '3d943fca-2431-4a91-94c9-94e6d633b789';
-    config.client_secret = '=G)nDvo#+}9IJmF^9x{bH';
+    config.authUrl = 'https://login.microsoftonline.com/1400c903-3a54-41dd-a597-241ce11262da/oauth2/v2.0/token',
+    config.client_id = 'b7d4b085-65dd-4d9d-a807-9ed8a713f55e',
+    config.client_secret = '7pm8Q~DSSaQulIANA1id~CACaa3xLq7-mUOWMcFN',
+    config.scope = 'aca9b1e1-2f23-4e09-a2b0-b10ae7b6034b/.default',
     config.resource = 'https://discoveryparks.com.au/test-int-api-v1';
     config.crmWebUrl= 'https://discoveryparkstest.crm6.dynamics.com/api/data/v8.2';
     config.crm_ClientId = 'a50d2e6e-1e6f-4794-b2cc-19d2e9e74d2a';

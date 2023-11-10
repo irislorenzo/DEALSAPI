@@ -7,6 +7,10 @@ Feature: Deal Condition Entity validation
     * def ParksAccomodationSchema = read('../parks/parksAccommodationSchema.json')
     * def uuid = function(){ return java.util.UUID.randomUUID() + '' }
     * def UUID = uuid()
+    * def result = call read('classpath:parks/get-token-Parks.feature')
+    * karate.configure('headers', { 'Authorization': result.token });
+  
+    
     
     
   Scenario: Get all parks information
