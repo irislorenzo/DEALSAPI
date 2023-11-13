@@ -1,5 +1,5 @@
 {
-    "ParkCode": "VNAT",
+    "ParkCode": "TEST",
     "Booking": {
         "CheckInDate": "2024-02-05T00:00:00Z",
         "CheckOutDate": "2024-02-11T00:00:00Z",
@@ -9,9 +9,9 @@
     },
     "AccommodationPricing": [
         {
-            "AccommodationId": "VNAT-3008-23-RT",
+            "AccommodationId": "TEST-3008-23-RT",
             "AccommodationType": 1,
-            "totalPrice": 1500,
+            "totalPrice": 2000,
             "PriceBreakdown": [
                 {
                     "Date": "2024-02-05T00:00:00Z",
