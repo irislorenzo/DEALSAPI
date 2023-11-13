@@ -7,27 +7,21 @@
     "image": "string",
     "text": "6xQddBIGhvuvioHdgC4x6ghlK2jvmtixLNEmGlzu5WFQe6fQFiR7hzWDSwO9KEXlMzpGHI7744Vz1YtMT3L9MLgYh9Ug9SeOa6mSEMPyHu0qzLTJQ15PDICEOI6WjNpWIygrAbf3RhcBlk6G0wbzWdJWX4ocrewM6HKVPoxHqq8Cquhkz23qWk3P1BGYSoMigFm6yQdee6xQddBIGhvuvioHdgC4x6ghlK2jvmtixLNEmGlzu5WFQe6fQFiR7hzWDSwO9KEXlMzpGHI7744Vz1YtMT3L9MLgYh9Ug9SeOa6mSEMPyHu0qzLTJQ15PDICEOI6WjNpWIygrAbf3RhcBlk6G0wbzWdJWX4ocrewM6HKVPoxHqq8Cquhkz23qWk3P1BGYSoMigFm6yQdee"
   },
-  "discountStructureId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "discountStructureId": "51175645-21a3-4d8c-9f4b-002e57704e8f",
   "accommodationInclusionCondition": "all",
-  "hidden": true,
+  "hidden": false,
   "campaignCondition": [
     {
-        "conditionId" : "2c059b3e-856c-ee11-9938-000d3ad19437",
+        "conditionId" : "f38402b3-025d-42ec-8208-86aba1ae3b86",
       "conditionValue": 4
     }
   ],
   "checkInDays": [1,1,1,1,1,1,1],
-  "campaignAvailability": {
-    "bookingDateRange": [
-      "2023-10-19T01:09:56.929Z", "2024-11-16T01:09:56.929Z"
-    ],
-    "stayDateRange": [
-      "2023-10-19T01:09:56.929Z", "2024-11-16T01:09:56.929Z"
-    ],
-    "blackoutDateRanges": [
-      [
-      "2023-10-29T01:09:56.929Z", "2023-10-30T01:09:56.929Z"
-      ]
-    ]
-  }
-}
+ "campaignAvailability": {
+            
+"bookingDateRange": ["2024-10-10T00:00:00Z", "2028-10-30T23:59:59Z"], 
+"stayDateRange": ["2024-10-01T00:00:00Z", "2028-10-30T23:59:59Z"], 
+"blackoutDateRanges": [ 
+   ["2024-10-01T00:00:00Z", "2028-10-30T23:59:59Z"]
+     ]
+}}

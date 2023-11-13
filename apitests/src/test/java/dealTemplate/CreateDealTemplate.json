@@ -8,7 +8,7 @@
             "text": "test"
         },
         "dealContentPolicyId": "99c226c7-18db-4566-a81c-fdbe8880ca2f",
-        "discountStructureId": "0d97e076-3c66-ee11-9938-000d3ad19437",
+        "discountStructureId": "51175645-21a3-4d8c-9f4b-002e57704e8f",
         "brands": [
             {
         "brandId": "0f3ac7fd-f151-ee11-9938-000d3ad19d08",
@@ -19,7 +19,7 @@
         ],
         "dealConditions": [
             {
-                "conditionId": "a5695ccb-c93c-ee11-b8f0-002248971d01",
+                "conditionId": "f38402b3-025d-42ec-8208-86aba1ae3b86",
                 "conditionValue": "5"
             }
         ]

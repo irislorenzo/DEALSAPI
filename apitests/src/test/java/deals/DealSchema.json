@@ -1,4 +1,4 @@
- {
+{
         "id": ##uuid,
         "code": ##string,
         "description": ##string,
@@ -11,8 +11,8 @@
         "dealAvailability": ##object,
         "hidden": ##boolean,
         "promocode": ##string,
-        "publishDatetime": ##string,
-        "withdrawalDatetime": ##string,
+        "publishDateTime": ##string,
+        "withdrawalDateTime": ##string,
         "checkInDays": ##array,
         "parkPolicyConditions": ##string,
         "accommodationInclusionCondition": ##string,

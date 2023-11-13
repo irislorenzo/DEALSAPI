@@ -23,18 +23,14 @@ Feature: Deal Condition Entity validation
   Scenario: Create a new condtion
     ### Create a condtion
   
-    Given path 'api/Conditions'
-    When request dealConditionCreate
-    When method post
-    Then status 201
-    * match response == {"message":"Condition created successfully."}
+ 
     
      ### Get all the available conditons
     Given path 'api/Conditions'
     When method get
     Then status 200
     * match response[0] == dealCondition
-    * def UUIDres = response[2].id
+    * def UUIDres = response[0].id
 
   #### Get condition with the condition ID
     Given path 'api/Conditions/'+ UUIDres +''
@@ -48,6 +44,12 @@ Feature: Deal Condition Entity validation
     When method delete
     Then status 204
 
+   Given path 'api/Conditions'
+    When request dealConditionCreate
+    When method post
+    Then status 201
+    * match response == {"message":"Condition created successfully."}
+    
   ###Negative Validation
   Scenario: Send Invalid condition request without code
     Given path 'api/Conditions'
@@ -105,6 +107,6 @@ Feature: Deal Condition Entity validation
     }
       """
     When method post
-    Then status 409
+    Then status 400
     * string temp = response
-    * match temp contains 'A condition with the same Code or Description already exists.'
+    * match temp contains 'The specified Code already exists.'

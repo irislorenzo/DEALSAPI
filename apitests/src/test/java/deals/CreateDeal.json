@@ -9,10 +9,10 @@
             "image": "https://test.photos/200",
             "text": "test"
         },
-        "discountStructureId": "a2e3f78c-3c66-ee11-9938-000d3ad19437",
+        "discountStructureId": "51175645-21a3-4d8c-9f4b-002e57704e8f",
         "dealConditions": [
             {
-                "conditionId": "b073703f-b66b-ee11-9938-000d3ad19437",
+                "conditionId": "f38402b3-025d-42ec-8208-86aba1ae3b86",
                 "conditionValue": "4"
             }
         ],
@@ -27,8 +27,6 @@
 },
         "hidden": 0,
         "promocode": "string",
-        "publishDatetime": "2024-09-30T01:43:05.11",
-        "withdrawalDatetime": "2024-10-30T01:43:05.11",
         "checkInDays": [
             1,
             1,

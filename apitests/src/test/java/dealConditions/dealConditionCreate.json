@@ -1,6 +1,6 @@
- {
-      "code": "2",
-      "description": "Advance booking days-Automation",
-      "conditionRuleId": "9944d786-d114-4b71-8c46-dadb41211c11",
-      "conditionValueType": "Integer"
- }
+{
+        "code": "maximumNightStay",
+        "description": "Maximum Night Stay",
+        "conditionValueType": "integer",
+        "id": "f38402b3-025d-42ec-8208-86aba1ae3b86"
+    }

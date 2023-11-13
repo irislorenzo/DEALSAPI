@@ -19,7 +19,7 @@ Feature: Deal Condition Entity validation
     * def campaignCode =  random_string(5)
     * def campaignCodeupdated =  random_string(7)
 
-  Scenario: Create a new condtion
+  Scenario: Create a new deal campaign
     ### Create a condtion
     * set dealCampaign.campaignCode = campaignCode
     Given path 'api/deal-campaign'

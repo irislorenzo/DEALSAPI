@@ -35,11 +35,11 @@ Feature: Deal Template Entity validation
     Then status 200
     * match response == DealTemplateSchema
     # delete a Deal Template
-    #Given path 'api/deal-template/'+ UUID +''
-    #When method delete
-    #Then status 204
+    Given path 'api/deal-template/'+ UUID +''
+    When method delete
+    Then status 204
 
-  ###Negative Validations
+  ##Negative Validations
   Scenario: Send Invalid request without Name
     Given path 'api/deal-template'
     When request

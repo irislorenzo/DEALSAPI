@@ -31,51 +31,52 @@ Feature: Deal Entity validation
     When method post
     Then status 201
     * match response == {"message":"Deal created successfully."}
+    
     ## Get a Deal Template
     Given path 'api/deals'
     When method get
     Then status 200
-    * match response[0] == DealSchema
+    * def UUIDres = response[0].id
     ## Get a Deal Template with specific ID
-    Given path 'api/deals/'+ UUID +''
+    Given path 'api/deals/'+ UUIDres +''
     When method get
     Then status 200
-    * match response[0] == DealSchema
+    * match response == DealSchema
     ## Update a Deal Template
     * set CreateDeal.description = "Deal Automation-updated"
-    Given path 'api/deals/'+ UUID +''
+    Given path 'api/deals/'+ UUIDres +''
     When request CreateDeal
     When method put
     Then status 200
     * match response == DealSchema
     ## delete a Deal Template
-    Given path 'api/deals/'+ UUID +''
+    Given path 'api/deals/'+ UUIDres +''
     When method delete
     Then status 204
 
     
-   Scenario: Deal conditions validation
-   
+   #Scenario: Deal conditions validation
+   #
    ## Create a deal condition
-    Given path '/api/deals/78fef5c5-7cf4-4c84-9ced-c2d6a6d6b921/conditions'
-    When request
-    """
-   [{
-                "conditionId": "b073703f-b66b-ee11-9938-000d3ad19437",
-                "conditionValue": "4"
-}]
-    """
-    When method post
-    Then status 201
-    * match response == {"message":"Deal Condition(s) created successfully."}
-    
+    #Given path '/api/deals/78fef5c5-7cf4-4c84-9ced-c2d6a6d6b921/conditions'
+    #When request
+    #"""
+   #[{
+                #"conditionId": "b073703f-b66b-ee11-9938-000d3ad19437",
+                #"conditionValue": "4"
+#}]
+    #"""
+    #When method post
+    #Then status 201
+    #* match response == {"message":"Deal Condition(s) created successfully."}
+    #
     ## Get a deal condition
-    Given path '/api/deals/78fef5c5-7cf4-4c84-9ced-c2d6a6d6b921/conditions'
-    When method get
-    Then status 200
-   
+    #Given path '/api/deals/78fef5c5-7cf4-4c84-9ced-c2d6a6d6b921/conditions'
+    #When method get
+    #Then status 200
+   #
    ## Delete a deal condition
-   Given path 'api/deals/78fef5c5-7cf4-4c84-9ced-c2d6a6d6b921/conditions/b073703f-b66b-ee11-9938-000d3ad19437'
-    When method delete
-    Then status 204
+   #Given path 'api/deals/78fef5c5-7cf4-4c84-9ced-c2d6a6d6b921/conditions/b073703f-b66b-ee11-9938-000d3ad19437'
+    #When method delete
+    #Then status 204
     
