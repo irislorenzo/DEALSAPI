@@ -5,7 +5,7 @@ Feature: Deal Validation Positive
     * url dealCalcUrl
     * def CreateDealValidation = read('../dealCalculation/CreateDealValidation.json')
  
-    Scenario: Verify Auto $99 Cabins Calculation
+    Scenario: Verify 15% Off Discount
     ## Get Deal Validation
     
     Given path 'api/accommodations/calculate-deals'
