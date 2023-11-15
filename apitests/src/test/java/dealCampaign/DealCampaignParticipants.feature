@@ -1,4 +1,4 @@
-Author: spalaniappan
+#Author: spalaniappan
 Feature: Deal Condition Entity validation
 
   Background: 

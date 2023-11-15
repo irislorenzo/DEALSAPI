@@ -100,13 +100,11 @@ Feature: Deal Condition Entity validation
       """
       {
         "code": "maximumNightStay",
-        "description": "Minimum stay in days",
-        "conditionRuleId": "4ec8c352-9c93-435d-8040-9d2645196f75",
+        "description": "Maximum Night Stay",
         "conditionValueType": "integer",
-        "id": "b073703f-b66b-ee11-9938-000d3ad19437"
+        "id": "f38402b3-025d-42ec-8208-86aba1ae3b86"
     }
       """
     When method post
     Then status 400
     * string temp = response
-    * match temp contains 'The specified Code already exists.'

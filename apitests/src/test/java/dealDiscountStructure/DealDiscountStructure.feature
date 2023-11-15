@@ -108,14 +108,13 @@ Feature: Deal content policy validation
     Given path 'api/discount-structure'
     When request
       """
-      {
-      "name": "Invalid request using non unique name",
-      "method": "Setprice",
-      "amount": 0,
-      "discountMap": "1,1,1,1,1,1,1",
-      "bookingNight": "6,7",
-      "waiverAdditionalCost": "{\"adults\":2,\"children\":1,\"pets\":1}"
-      }
+       {
+        "name": "Midweek: 40% Off",
+        "method": "percentage",
+        "amount": 40.00,
+        "discountMap": "1,1,1,1,0,0,0",
+        "id": "51175645-21a3-4d8c-9f4b-002e57704e8f"
+    }
       """
     When method post
     Then status 409
