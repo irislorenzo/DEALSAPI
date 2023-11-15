@@ -1,0 +1,64 @@
+ {
+        "code": "5EBUO",
+        "description": "DJ2XQUYs",
+        "dealStatus": "active",
+        "dealType": "standard",
+        "parkCode": "SADO",
+        "promotionalContent": {
+            "image": "https://test.photos/200",
+            "text": "test"
+        },
+        "discountStructureId": "51175645-21a3-4d8c-9f4b-002e57704e8f",
+        "discountStructure": {
+            "name": "Midweek: 40% Off",
+            "method": "percentage",
+            "amount": 40.00,
+            "discountMap": "1,1,1,1,0,0,0",
+            "id": "51175645-21a3-4d8c-9f4b-002e57704e8f"
+        },
+        "dealConditions": [
+            {
+                "conditionId": "f38402b3-025d-42ec-8208-86aba1ae3b86",
+                "dealId": "92a2a589-4b83-ee11-8925-00224898d513",
+                "conditionValue": "4",
+                "condition": {
+                    "code": "maximumNightStay",
+                    "description": "Maximum Night Stay",
+                    "conditionValueType": "integer",
+                    "id": "f38402b3-025d-42ec-8208-86aba1ae3b86"
+                }
+            }
+        ],
+        "dealAvailability": {
+            "bookingDateRange": [
+                "2024-10-10T00:00:00+00:00",
+                "2028-10-30T23:59:59+00:00"
+            ],
+            "stayDateRange": [
+                "2024-10-01T00:00:00+00:00",
+                "2028-10-30T23:59:59+00:00"
+            ],
+            "blackoutDateRanges": [
+                [
+                    "2024-10-01T00:00:00Z",
+                    "2028-10-30T23:59:59Z"
+                ]
+            ]
+        },
+        "hidden": false,
+        "promocode": "string",
+        "checkInDays": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0
+        ],
+        "parkPolicyConditions": "string",
+        "accommodationInclusionCondition": "All",
+        "dealCampaign": 0,
+        "dealApprovalStatus": "drafted",
+        "id": "92a2a589-4b83-ee11-8925-00224898d513"
+    }

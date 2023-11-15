@@ -5,6 +5,7 @@ Feature: Deal Entity validation
     * url dealsUrl
     * def CreateDeal = read('../deals/CreateDeal.json')
     * def DealSchema = read('../deals/DealSchema.json')
+    * def PutDeal = read('../deals/PutDeal.json')
     * def uuid = function(){ return java.util.UUID.randomUUID() + '' }
     * def UUID = uuid()
      * def UUID = uuid()
@@ -42,10 +43,11 @@ Feature: Deal Entity validation
     When method get
     Then status 200
     * match response == DealSchema
+    
     ## Update a Deal Template
-    * set CreateDeal.description = "Deal Automation-updated"
-    Given path 'api/deals/'+ UUIDres +''
-    When request CreateDeal
+    * set PutDeal.code =  random_string(6)
+    Given path 'api/deals/92a2a589-4b83-ee11-8925-00224898d513'
+    When request PutDeal
     When method put
     Then status 200
     * match response == DealSchema
