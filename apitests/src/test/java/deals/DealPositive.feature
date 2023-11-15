@@ -46,7 +46,8 @@ Feature: Deal Entity validation
     
     ## Update a Deal Template
     * set PutDeal.code =  random_string(6)
-    Given path 'api/deals/92a2a589-4b83-ee11-8925-00224898d513'
+    * set PutDeal.dealConditions[0].dealId = UUIDres
+    Given path 'api/deals/'+ UUIDres +''
     When request PutDeal
     When method put
     Then status 200
