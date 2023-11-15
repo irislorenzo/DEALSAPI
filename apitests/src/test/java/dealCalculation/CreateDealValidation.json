@@ -2,7 +2,7 @@
     "ParkCode": "TEST",
     "Booking": {
         "CheckInDate": "2024-02-05T00:00:00Z",
-        "CheckOutDate": "2024-02-11T00:00:00Z",
+        "CheckOutDate": "2024-02-09T00:00:00Z",
         "NumberOfAdults": 2,
         "NumberOfChildren": 5,
         "NumberOfPets": 0
@@ -47,21 +47,7 @@
                    "AdditionalAdultAmount": 15,
                     "ChildAmount": 10,
                     "PetAmount": 5
-                },
-                {
-                    "Date": "2024-02-10T00:00:00Z",
-                    "BaseRateAmountForTwoAdults": 250,
-                     "AdditionalAdultAmount": 15,
-                    "ChildAmount": 10,
-                    "PetAmount": 5
-                },
-                {
-                    "Date": "2024-02-11T00:00:00Z",
-                    "BaseRateAmountForTwoAdults": 250,
-                     "AdditionalAdultAmount": 15,
-                    "ChildAmount": 10,
-                    "PetAmount": 5
-                }		
+                }
             ]
         }
     ]
