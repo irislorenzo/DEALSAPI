@@ -1,0 +1,25 @@
+{
+  "parks": [
+    {
+      "propertyCode": ##string,
+      "propertyName": ##string,
+      "latitude": ##number,
+      "longitude": ##number,
+      "state": ##string,
+      "town": ##string,
+      "description": ##string,
+      "propertyUrl": ##string,
+      "restrictions": ##array,
+      "distance": ##number,
+      "parkHidden": ##boolean,
+      "distanceFromCapitalCity": ##number,
+      "parkBrands": ##array,
+      "imageUrls": ##object,
+      "pricing": ##object,
+      "reviews": ##object,
+    }
+  ],
+  "totalCount": ##number,
+  "offset": ##number,
+  "pageSize": ##number
+}
