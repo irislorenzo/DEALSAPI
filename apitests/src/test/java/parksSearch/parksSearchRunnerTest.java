@@ -6,7 +6,7 @@ public class parksSearchRunnerTest {
 	
 	@Karate.Test
     Karate ParksSearchPositive() {
-        return Karate.run("ParksSearch").relativeTo(getClass());
+        return Karate.run("ParksSearchPositive").relativeTo(getClass());
     }
 
 	@Karate.Test

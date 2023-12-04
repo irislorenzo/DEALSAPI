@@ -2,57 +2,18 @@
 Feature: Parks Search Negative Validation
 
   Background: 
-    * url dealsUrl
-    * def CreateDeal = read('../deals/CreateDeal.json')
-    * def DealSchema = read('../deals/DealSchema.json')
-    * def uuid = function(){ return java.util.UUID.randomUUID() + '' }
-    * def UUID = uuid()
-     * def UUID = uuid()
-        * def random_string =
- """
- function(s) {
-   var text = "";
-   var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789";
-   for (var i = 0; i < s; i++)
-     text += possible.charAt(Math.floor(Math.random() * possible.length));
-   return text;
- }
- """
- * def code =  random_string(5)
- * def Description =  random_string(7)
- 
- ## Variables and Path will update once API is stabilized
+    * url parkSearchUrl
+    * def GetParks = read('../parksSearch/parksSearchSchema.json')
 
-    Scenario: Post without a CheckIn
-    ## Create a Deal
-    * set CreateDeal.dealId = UUID
-    * set CreateDeal.code = null
-    * set CreateDeal.description = Description
-    Given path 'api/deals'
-    When request parksSearchSchema
-    When method post
-    Then status 400
-    * match response.errors == {"checkIn":["The CheckIn field is required."]}
+    Scenario: Get without required fields - CheckIn, CheckOut, and NumberOfAdults
+    Given path 'api/search/parks'
+    When method get
+    Then status 424
     
-    Scenario: Post without a CheckOut
-    ## Create a Deal
-    * set CreateDeal.dealId = UUID
-    * set CreateDeal.code = code
-    * set CreateDeal.description = null
-    Given path 'api/deals'
-    When request parksSearchSchema
-    When method post
+    Scenario: Park Search date more than 28 days
+    * param checkIn = '2023-12-01'
+    * param checkOut = '2023-12-29'
+    Given path 'api/search/parks'
+    When method get
     Then status 400
-    * match response.errors == {"checkOut":["The CheckOut field is required."]}
-    
-    Scenario: Post without a Number of Adults
-    ## Create a Deal
-    * set CreateDeal.dealId = UUID
-    * set CreateDeal.code = code
-    * set CreateDeal.description = Description
-    * set CreateDeal.dealStatus = null
-    Given path 'api/deals'
-    When request parksSearchSchema
-    When method post
-    Then status 400
-    * match response.errors == {"numberOfAdults":["The NumberOfAdults field is required."]} 
+    * match response == ["If you require a booking for 28 days or more, you will need to contact the park directly. Please send us an email with your booking requirements or call on (08) 8449 7726."]
