@@ -2,98 +2,95 @@
 Feature: Parks Search Positive Validation
 
   Background: 
-    * url dealsUrl
-    * def CreateDeal = read('../deals/CreateDeal.json')
-    * def DealSchema = read('../deals/DealSchema.json')
-    * def uuid = function(){ return java.util.UUID.randomUUID() + '' }
-    * def UUID = uuid()
-     * def UUID = uuid()
-        * def random_string =
- """
- function(s) {
-   var text = "";
-   var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789";
-   for (var i = 0; i < s; i++)
-     text += possible.charAt(Math.floor(Math.random() * possible.length));
-   return text;
- }
- """
- * def code =  random_string(5)
- * def Description =  random_string(7)
- 
- ## Variables and Path will update once API is stabilized
+    * url parkSearchUrl
+    * def GetParks = read('../parksSearch/parksSearchSchema.json')
 
     Scenario: Get using required fields - CheckIn, CheckOut, and NumberOfAdults
-    ## Create a Deal
-    * set CreateDeal.dealId = UUID
-    * set CreateDeal.code = null
-    * set CreateDeal.description = Description
-    Given path 'api/deals'
-    When request parksSearchSchema
-    When method post
+    * param checkIn = '2023-12-01'
+    * param checkOut = '2023-12-28'
+    * param numberOfAdults = 2
+    Given path 'api/search/parks'
+    When method get
     Then status 200
     
     Scenario: Get using lat and long
-    ## Create a Deal
-    * set CreateDeal.dealId = UUID
-    * set CreateDeal.code = code
-    * set CreateDeal.description = null
-    Given path 'api/deals'
-    When request parksSearchSchema
-    When method post
+    * param checkIn = '2023-12-01'
+    * param checkOut = '2023-12-28'
+    * param numberOfAdults = 2
+    * param lat = -15.574689
+    * param lng = 133.216206
+    Given path 'api/search/parks'
+    When method get
     Then status 200
+    * match response.parks[0].latitude == -15.574689
+    * match response.parks[0].longitude == 133.216206
     
     Scenario: Get using State
-    ## Create a Deal
-    * set CreateDeal.dealId = UUID
-    * set CreateDeal.code = code
-    * set CreateDeal.description = Description
-    * set CreateDeal.dealStatus = null
-    Given path 'api/deals'
-    When request parksSearchSchema
-    When method post
+    * param checkIn = '2023-12-01'
+    * param checkOut = '2023-12-28'
+    * param numberOfAdults = 2
+    * param states = 'QLD'
+    Given path 'api/search/parks'
+    When method get
     Then status 200
-    
+    * match response.parks[0].state == 'QLD'
+
     Scenario: Get using Experiences
-    ## Create a Deal
-    * set CreateDeal.dealId = UUID
-    * set CreateDeal.code = code
-    * set CreateDeal.description = Description
-    * set CreateDeal.dealStatus = null
-    Given path 'api/deals'
-    When request parksSearchSchema
-    When method post
+    * param checkIn = '2023-12-01'
+    * param checkOut = '2023-12-28'
+    * param numberOfAdults = 2
+    * param experiences = 'Golfing'
+    Given path 'api/search/parks'
+    When method get
     Then status 200
+    * match response.parks[0].experiences[*] contains "Golfing"
     
-        Scenario: Get using Features
-    ## Create a Deal
-    * set CreateDeal.dealId = UUID
-    * set CreateDeal.code = code
-    * set CreateDeal.description = Description
-    * set CreateDeal.dealStatus = null
-    Given path 'api/deals'
-    When request parksSearchSchema
-    When method post
+    Scenario: Get using Features
+    * param checkIn = '2023-12-01'
+    * param checkOut = '2023-12-28'
+    * param numberOfAdults = 2
+    * param features = 'Laundry'
+    Given path 'api/search/parks'
+    When method get
     Then status 200
+    * match response.parks[0].features[*] contains "Laundry"
     
-    Scenario: Get using PetsAllowed
-    ## Create a Deal
-    * set CreateDeal.dealId = UUID
-    * set CreateDeal.code = code
-    * set CreateDeal.description = Description
-    * set CreateDeal.dealStatus = null
-    Given path 'api/deals'
-    When request parksSearchSchema
-    When method post
+    Scenario: Get when PetsAllowed is set to True
+    * param checkIn = '2023-12-01'
+    * param checkOut = '2023-12-28'
+    * param numberOfAdults = 2
+    * param petsAllowed = true
+    Given path 'api/search/parks'
+    When method get
     Then status 200
+    * match response.parks[0].restrictions[0].displayName == "Dogs Allowed"
     
+    Scenario: Get when PetsAllowed is set to False
+    * param checkIn = '2023-12-01'
+    * param checkOut = '2023-12-28'
+    * param numberOfAdults = 2
+    * param petsAllowed = false
+    Given path 'api/search/parks'
+    When method get
+    Then status 200
+    * match response.parks[0].restrictions[0].displayName == "No Dogs Allowed"
+      
     Scenario: Get using ParkBrand
-    ## Create a Deal
-    * set CreateDeal.dealId = UUID
-    * set CreateDeal.code = code
-    * set CreateDeal.description = Description
-    * set CreateDeal.dealStatus = null
-    Given path 'api/deals'
-    When request parksSearchSchema
-    When method post
+    * param checkIn = '2023-12-01'
+    * param checkOut = '2023-12-28'
+    * param numberOfAdults = 2
+    * param parkBrand = "Discovery Parks"
+    Given path 'api/search/parks'
+    When method get
     Then status 200
+    * match response.parks[0].parkBrands[0] == "Discovery Parks"
+    
+    Scenario: Get using PageSize
+    * param checkIn = '2023-12-01'
+    * param checkOut = '2023-12-28'
+    * param numberOfAdults = 2
+    * param pageSize = 4
+    Given path 'api/search/parks'
+    When method get
+    Then status 200
+    * match response.pageSize == 4

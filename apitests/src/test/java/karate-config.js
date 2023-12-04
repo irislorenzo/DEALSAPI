@@ -23,7 +23,8 @@ function fn() {
     commsUrl: 'https://dev-communications-v2-dhp-api-as.azurewebsites.net/',
     subsUrl: 'https://dev-subscribers-as.azurewebsites.net',
     dealsUrl: 'https://dev-deals-v2-as.azurewebsites.net/',
-    parksUrl: 'https://dev-parks-as.azurewebsites.net/'
+    parksUrl: 'https://dev-parks-as.azurewebsites.net/',
+    parkSearchUrl: 'https://dev-search-as.azurewebsites.net/'
   }
   if (env == 'dev') {
     
@@ -47,6 +48,7 @@ function fn() {
     config.parksUrl = 'https://test-parks-as.azurewebsites.net/';
     config.dealCalcUrl = 'https://test-deals-v2-calc-as.azurewebsites.net/';
     config.dynamicOfferUrl = 'https://test-offers-as.azurewebsites.net/api/offers';
+    config.parkSearchUrl = 'https://test-search-as.azurewebsites.net/';
   } else if(env == 'memberv2'){
 	    config.memberUrl = 'https://test-int-dhp-api-membership-net6.azurewebsites.net/';
 	    config.customerWebCdn = 'https://proddupe-strategicweb-cdn.azureedge.net';
