@@ -1,0 +1,23 @@
+[
+  {
+    "code": "minimumNightStay",
+    "description": "Minimum Night Stay",
+    "conditionValueType": "integer",
+    "id": "d6c47ed5-903b-4c1f-94e9-4d13c36e9343",
+    "isNew": false
+  },
+  {
+    "code": "advanceBookingDays",
+    "description": "Advance Booking Days",
+    "conditionValueType": "integer",
+    "id": "8f26b4c0-9a67-462a-8bc9-662b2a90957e",
+    "isNew": false
+  },
+  {
+    "code": "maximumNightStay",
+    "description": "Maximum Night Stay",
+    "conditionValueType": "integer",
+    "id": "cb4d6505-da61-4baa-9b2d-6eeda6e8c8ac",
+    "isNew": false
+  }
+]

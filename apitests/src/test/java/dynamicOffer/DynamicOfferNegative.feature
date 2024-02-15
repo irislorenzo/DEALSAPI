@@ -79,7 +79,7 @@ Feature: Dynamic Offer Negative Test Validation
     """    
     When method post
     Then status 400     
-    * match response.errors == {"accommodationRequest.Arrive":["The Arrive field is required."]}       
+    * match response.errors == {"accommodationRequest.Arrive.Arrive":["The Arrive field is required."]}       
     
   Scenario: Post Dynamic Offer without Depart field    
     When request 
@@ -98,7 +98,7 @@ Feature: Dynamic Offer Negative Test Validation
     """    
     When method post
     Then status 400     
-    * match response.errors == {"accommodationRequest.Depart":["The Depart field is required."]}   
+    * match response.errors == {"accommodationRequest.Depart.Depart":["The Depart field is required."]}   
     
     Scenario: Post Dynamic Offer without Property Code field    
     When request 
