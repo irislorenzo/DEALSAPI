@@ -2,12 +2,12 @@
    "accommodationRequest": {
     "propertyCode": "TEST",
     "accommodationType": "cabin",
-    "arrive": "2024-01-08",
-    "depart": "2024-01-10",
+    "arrive": "2024-05-08",
+    "depart": "2024-05-10",
     "adults": 2,
     "kids":0,
-    "Infants":0,
-    "promocode":"15DollarOff749"
+    "Infants":0
+
   },
   "guestList": [
     {
