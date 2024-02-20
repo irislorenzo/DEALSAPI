@@ -35,6 +35,7 @@ class ParallelExecutionTest {
         		"classpath:dealCalculation" ,
         		"classpath:dealCampaign",
         		"classpath:dynamicOffer"
+//        		"classpath:parksSearch"
         	)
         		.outputCucumberJson(true)
         		.outputJunitXml(true)

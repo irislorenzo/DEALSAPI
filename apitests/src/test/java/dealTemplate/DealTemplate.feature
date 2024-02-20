@@ -58,6 +58,7 @@ Feature: Deal Template Entity validation
     When method post
     Then status 400
     * match response.errors == {  "name": [ "The Name field is required." ]    }
+    
     #COMMENTING THIS SCENARIO SINCE PROMOTIONAL CONTENT SINCE NO VALIDATION APPLIED ON TEXT
     #Scenario: Invalid request with 121 chars in promotional content
     #Given path 'api/deal-template'

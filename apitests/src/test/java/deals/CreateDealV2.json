@@ -1,6 +1,7 @@
 {
-  "code": "AUTOMATIONUPDATE",
-  "description": "AUTOMATIONUPDATE",
+  "id": "90cd8c6f-64a9-4e35-9a7e-15a84f3ba0c3",
+  "code": "AUTOMATION",
+  "description": "AUTOMATION",
   "dealStatus": "created",
   "dealType": "standard",
   "parkCode": "WWOO",
@@ -15,6 +16,32 @@
         "brands": [
             "gday",
             "dhp"
+        ],
+        "conditions": [
+            {
+                "conditionId": "8f26b4c0-9a67-462a-8bc9-662b2a90957e",
+                "dealTemplateId": "52365442-3cbb-ee11-be9e-000d3ad01148",
+                "conditionValue": "1",
+                "condition": {
+                    "code": "advanceBookingDays",
+                    "description": "Advance Booking Days",
+                    "conditionValueType": "integer",
+                    "id": "8f26b4c0-9a67-462a-8bc9-662b2a90957e",
+                    "isNew": false
+                }
+            },
+            {
+                "conditionId": "cb4d6505-da61-4baa-9b2d-6eeda6e8c8ac",
+                "dealTemplateId": "52365442-3cbb-ee11-be9e-000d3ad01148",
+                "conditionValue": "5",
+                "condition": {
+                    "code": "maximumNightStay",
+                    "description": "Maximum Night Stay",
+                    "conditionValueType": "integer",
+                    "id": "cb4d6505-da61-4baa-9b2d-6eeda6e8c8ac",
+                    "isNew": false
+                }
+            }
         ],
   "dealAvailability": {
     "bookingDateRange": {
