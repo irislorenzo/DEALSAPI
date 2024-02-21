@@ -1,27 +1,51 @@
 {
-  "campaignCode": "SCampaignwithoutpromoupdatedup",
-  "campaignName": "string",
-  "campaignDescription": "string",
-  "campaignContactPerson": "string",
+  "campaignCode": "AUTO",
+  "campaignName": "AUTO",
+  "campaignDescription": "AUTO",
+  "campaignContactPerson": "AUTO",
+  "isActive": true,
   "promotionalContent": {
     "image": "string",
-    "text": "6xQddBIGhvuvioHdgC4x6ghlK2jvmtixLNEmGlzu5WFQe6fQFiR7hzWDSwO9KEXlMzpGHI7744Vz1YtMT3L9MLgYh9Ug9SeOa6mSEMPyHu0qzLTJQ15PDICEOI6WjNpWIygrAbf3RhcBlk6G0wbzWdJWX4ocrewM6HKVPoxHqq8Cquhkz23qWk3P1BGYSoMigFm6yQdee6xQddBIGhvuvioHdgC4x6ghlK2jvmtixLNEmGlzu5WFQe6fQFiR7hzWDSwO9KEXlMzpGHI7744Vz1YtMT3L9MLgYh9Ug9SeOa6mSEMPyHu0qzLTJQ15PDICEOI6WjNpWIygrAbf3RhcBlk6G0wbzWdJWX4ocrewM6HKVPoxHqq8Cquhkz23qWk3P1BGYSoMigFm6yQdee"
+    "text": "string"
   },
-  "discountStructureId": "51175645-21a3-4d8c-9f4b-002e57704e8f",
+  "discountStructureId": "79089c50-17b4-ee11-be9e-000d3ad01148",
+  "checkInDays": {
+    "monday": true,
+    "tuesday": true,
+    "wednesday": true,
+    "thursday": true,
+    "friday": true,
+    "saturday": true,
+    "sunday": true
+  },
   "accommodationInclusionCondition": "all",
-  "hidden": false,
-  "campaignCondition": [
+  "hidden": true,
+  "promoCode": "string",
+  "campaignConditions": [
     {
-        "conditionId" : "f38402b3-025d-42ec-8208-86aba1ae3b86",
-      "conditionValue": 4
+      "conditionId": "8f26b4c0-9a67-462a-8bc9-662b2a90957e",
+      "conditionValue": "string"
     }
   ],
-  "checkInDays": [1,1,1,1,1,1,1],
- "campaignAvailability": {
-            
-"bookingDateRange": ["2024-10-10T00:00:00Z", "2028-10-30T23:59:59Z"], 
-"stayDateRange": ["2024-10-01T00:00:00Z", "2028-10-30T23:59:59Z"], 
-"blackoutDateRanges": [ 
-   ["2024-10-01T00:00:00Z", "2028-10-30T23:59:59Z"]
-     ]
-}}
+  "campaignAvailability": {
+    "bookingDateRange": {
+      "startDate": "2024-04-25T05:28:01.515Z",
+      "endDate": "2024-05-25T05:28:01.515Z"
+    },
+    "stayDateRange": {
+      "startDate": "2024-06-25T05:28:01.515Z",
+      "endDate": "2024-07-25T05:28:01.515Z"
+    },
+    "blackoutDateRanges": [
+      {
+        "startDate": "2024-07-26T05:28:01.515Z",
+        "endDate": "2024-07-27T05:28:01.515Z"
+      }
+    ]
+  },
+  "campaignParticipants": [
+    {
+      "parkCode": "SADO"
+    }
+  ]
+}

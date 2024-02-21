@@ -8,6 +8,4 @@ public class ParksTest {
     Karate DealCondition() {
         return Karate.run("Parks").relativeTo(getClass());
     }
-	
-	
 }
