@@ -23,8 +23,7 @@ Feature: Deal Entity validation
  * def Description =  random_string(7)
 
   Scenario: Deal E2E
-    ## Create a Deal Template
-    * set CreateDeal.id = UUID
+    ## Create a Deal
     Given path 'api/v2/deals'
     When request CreateDeal
     When method post
@@ -37,23 +36,22 @@ Feature: Deal Entity validation
     Given path 'api/v2/deals'
     When method get
     Then status 200
-    * def UUIDres = response[0].id
-    And print response[0].id
+    * def newId = response.find(x => x.code == 'AUTOMATION').id
+    And print newId
     
     ## Get a Deal  with specific ID
-    Given path 'api/v2/deals/'+ UUID +''
+    Given path 'api/v2/deals/'+ newId +''
     When method get
     Then status 200
-    And print UUIDres
     
     ## Update a Deal
-    Given path 'api/v2/deals/'+ UUIDres +''
+    Given path 'api/v2/deals/'+ newId +''
     When request PutDeal
     When method put
     Then status 200
 
     ## delete a Deal
-    Given path 'api/deals/'+ UUIDres +''
+    Given path 'api/deals/'+ newId +''
     When method delete
     Then status 204
     
