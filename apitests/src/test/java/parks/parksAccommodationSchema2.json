@@ -11,7 +11,8 @@
     "numberOfBedRooms": ##number,
     "images": ##array,
 	"restrictions": ##array,
-	"amenities": ##array,	
+	"amenities": ##array,
+	"message": ##string,	
     "accommodationId": ##string,
 	"rmsAccommodationId": ##number,
     "typeCode": ##number,
@@ -20,5 +21,5 @@
     "accommodationSubType": ##string,
     "displayName": ##string,
     "pmsName": ##number,
-    "isPopular": ##array
+    "isPopular": ##boolean
 }
