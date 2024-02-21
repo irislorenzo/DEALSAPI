@@ -6,5 +6,6 @@
         "discountMap": ##string,
         "bookingNight": ##string,
         "waiverAdditionalCost": ##string,
-        "id": ##uuid
+        "id": ##uuid,
+	"isNew": ##boolean
     }

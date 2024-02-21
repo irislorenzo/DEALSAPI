@@ -3,6 +3,7 @@
     "code": "minimumNightStay",
     "description": "Minimum Night Stay",
     "conditionValueType": "integer",
+    "conditionRuleId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     "id": "d6c47ed5-903b-4c1f-94e9-4d13c36e9343",
     "isNew": false
   },

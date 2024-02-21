@@ -17,7 +17,7 @@ Feature: Deal content policy validation
    return text;
  }
  """
- * def Name =  random_string(5)
+ * def Name =  "AUTO - " + random_string(5)
 
   Scenario: Create a discount structure
   * set DealDiscountStructureCreate.discountStructureId = UUID
@@ -43,7 +43,7 @@ Feature: Deal content policy validation
       * def UUIDres = response[0].id
 
   ### Update discount structure using discount structure ID
-  * set DealDiscountStructureCreate.name = "test automation- Updated"
+  * set DealDiscountStructureCreate.name = "AUTOMATION - Updated"
     Given path 'api/discount-structure/'+ UUIDres +''
     When request DealDiscountStructureCreate
     When method put
