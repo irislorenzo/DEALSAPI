@@ -9,8 +9,8 @@ public class DealRunnerTest {
         return Karate.run("DealPositive").relativeTo(getClass());
     }
 
-//	@Karate.Test
-//    Karate DealNegativeValidation() {
-//        return Karate.run("DealNegative").relativeTo(getClass());
-//    }
+	@Karate.Test
+    Karate DealNegativeValidation() {
+        return Karate.run("DealNegative").relativeTo(getClass());
+    }
 }
