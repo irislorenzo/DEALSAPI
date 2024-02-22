@@ -4,6 +4,7 @@ Feature: Deal Condition Entity validation
   Background: 
     * url dealsUrl
     * def dealCampaign = read('../dealCampaign/dealCampaign.json')
+    * def dealCampaignMultiple = read('../dealCampaign/dealCampaignMultiple.json')
     * def uuid = function(){ return java.util.UUID.randomUUID() + '' }
     * def UUID = uuid()
     * def random_string =
@@ -343,3 +344,111 @@ Feature: Deal Condition Entity validation
     When method post
     Then status 400
     #* match response.errors == { "campaignCode": ["The CampaignCode field is required."]  }
+    
+  #Scenario: Create deal campaign and multiple participant - COMMENTING THIS ONE AFFECTED WITH THE BUG https://discoveryparks.atlassian.net/browse/DL20-1234
+    ### Create a new deal campaign 
+    #* set dealCampaign.campaignCode = campaignCode
+    #Given path 'api/deal-campaign'
+    #When request dealCampaignMultiple
+    #When method post
+    #Then status 200
+    #And match response contains {id: '#uuid'}   
+    #And print response.id
+    #* def campId = response.id
+    ### Get all deal Campaign
+    #Given path 'api/deal-campaign'
+    #When request dealCampaign
+    #When method get
+    #Then status 200
+    ### Get individual campaign
+    #Given path 'api/deal-campaign/'+ campId +''
+    #When request dealCampaign
+    #When method get
+    #Then status 200
+    ### update individual campaign
+    #* set dealCampaign.campaignCodeupdated = campaignCodeupdated
+    #Given path 'api/deal-campaign/'+ campId +''
+    #When request dealCampaign
+    #When method put
+    #Then status 200
+    ### delete individual campaign
+    #* set dealCampaign.campaignCodeupdated = campaignCodeupdated
+    #Given path 'api/deal-campaign/'+ campId +''
+    #When request dealCampaign
+    #When method delete
+    #Then status 204  
+    
+  Scenario: Create Deal Campaign and retrieve multiple status
+    ### Create a new deal campaign 
+    * set dealCampaign.campaignCode = campaignCode
+    Given path 'api/deal-campaign'
+    When request dealCampaignMultiple
+    When method post
+    Then status 200
+    And match response contains {id: '#uuid'}   
+    And print response.id
+    * def campId = response.id
+    ### Get all deal Campaign
+    Given path 'api/deal-campaign'
+    When request dealCampaign
+    When method get
+    Then status 200
+    ### Get individual campaign
+    Given path 'api/deal-campaign/'+ campId +''
+    When request dealCampaign
+    When method get
+    Then status 200
+    * match response.campaignParticipants[0].status == 'invited'
+    * match response.campaignParticipants[1].status == 'invited'
+    
+    ### delete individual campaign
+    * set dealCampaign.campaignCodeupdated = campaignCodeupdated
+    Given path 'api/deal-campaign/'+ campId +''
+    When request dealCampaign
+    When method delete
+    Then status 204    	      
+    
+  Scenario: Get Deal Campaign and retrieve single status
+    ### Get individual campaign
+    Given path 'api/deal-campaign/'+ 'c9be8800-3dd1-ee11-85f7-002248975a78' +''
+    When request dealCampaign
+    When method get
+    Then status 200
+    * match response.campaignParticipants[0].status == 'optedIn'
+
+  Scenario: Get Deal Campaign and retrieve single status for G'day parks
+    ### Get individual campaign
+    Given path 'api/deal-campaign/'+ '9a902f13-3fd1-ee11-85f7-002248975a78' +''
+    When request dealCampaign
+    When method get
+    Then status 200
+    * match response.campaignParticipants[0].status == 'invited'    
+    
+  Scenario: Create Deal Campaign with invalid Discount Structure
+    ### Create a new deal campaign 
+    * set dealCampaign.campaignCode = campaignCode
+    * set dealCampaign.discountStructureId = "1735728d-6007-4d9b-acd6-92ced907c5cc"
+    Given path 'api/deal-campaign'
+    When request dealCampaign
+    When method post
+    Then status 400
+    
+  Scenario: Create Deal Campaign without Discount Structure
+    ### Create a new deal campaign 
+    * set dealCampaign.campaignCode = campaignCode
+    * set dealCampaign.discountStructureId = null
+    Given path 'api/deal-campaign'
+    When request dealCampaign
+    When method post
+    Then status 400    
+    
+  Scenario: Create Deal Campaign without Campaign Name, Campaign Code, and Campaign Description
+    ### Create a new deal campaign 
+    * set dealCampaign.campaignCode = null
+    * set dealCampaign.campaignName = null
+    * set dealCampaign.campaignDescription = null
+    Given path 'api/deal-campaign'
+    When request dealCampaign
+    When method post
+    Then status 400        
+    	    

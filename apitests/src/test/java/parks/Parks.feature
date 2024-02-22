@@ -41,4 +41,33 @@ Feature: Deal Condition Entity validation
   When method get
   Then status 200
   
+  Scenario: Get parks accommodations content
+  
+  Given path '/api/parks/' + "WLAN" + '/accommodations' 
+  When method get
+  Then status 200
+  * match response[*].accommodationId contains ["WLAN-OTAV2-329-RT"]
+  
+  Scenario: Get parks accommodations content with invalid accommodation
+  
+  Given path '/api/parks/' + "WLAN" + '/accommodations' 
+  When method get
+  Then status 200
+  * match response[*].accommodationId !contains ["INVALID_ACCOMMODATION"]
+  
+  Scenario: GET parks using parkCode and accommodationId
+  
+  Given path '/api/parks/' + "WLAN" + '/accommodations/' + 'WLAN-OTAV2-329-RT' 
+  When method get
+  Then status 200
+  * match response.accommodationId contains "WLAN-OTAV2-329-RT"
+  
+   Scenario: GET parks using parkCode and verify if isFeatured is displayed
+  
+  Given path '/api/parks/' + "WLAN" + '/accommodations'  
+  When method get
+  Then status 200
+  #Not featured means no value on object
+  * match response[*].isFeatured == []
+  
   

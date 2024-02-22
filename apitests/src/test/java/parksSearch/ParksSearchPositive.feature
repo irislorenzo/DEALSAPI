@@ -4,6 +4,8 @@ Feature: Parks Search Positive Validation
   Background: 
     * url parkSearchUrl
     * def GetParks = read('../parksSearch/parksSearchSchema.json')
+    * def result = call read('classpath:parks/get-token-Parks.feature')
+    * karate.configure('headers', { 'Authorization': result.token });    
 
     Scenario: Get using required fields - CheckIn, CheckOut, and NumberOfAdults
     * param checkIn = '2023-12-01'
