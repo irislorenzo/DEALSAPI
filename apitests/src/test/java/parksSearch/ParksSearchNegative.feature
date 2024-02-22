@@ -4,6 +4,8 @@ Feature: Parks Search Negative Validation
   Background: 
     * url parkSearchUrl
     * def GetParks = read('../parksSearch/parksSearchSchema.json')
+    * def result = call read('classpath:parks/get-token-Parks.feature')
+    * karate.configure('headers', { 'Authorization': result.token });    
 
     Scenario: Get without required fields - CheckIn, CheckOut, and NumberOfAdults
     Given path 'api/search/parks'

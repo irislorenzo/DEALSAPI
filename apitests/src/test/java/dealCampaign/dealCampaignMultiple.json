@@ -1,0 +1,54 @@
+{
+  "campaignCode": "AUTO",
+  "campaignName": "AUTO",
+  "campaignDescription": "AUTO",
+  "campaignContactPerson": "AUTO",
+  "isActive": true,
+  "promotionalContent": {
+    "image": "string",
+    "text": "string"
+  },
+  "discountStructureId": "79089c50-17b4-ee11-be9e-000d3ad01148",
+  "checkInDays": {
+    "monday": true,
+    "tuesday": true,
+    "wednesday": true,
+    "thursday": true,
+    "friday": true,
+    "saturday": true,
+    "sunday": true
+  },
+  "accommodationInclusionCondition": "all",
+  "hidden": true,
+  "promoCode": "string",
+  "campaignConditions": [
+    {
+      "conditionId": "8f26b4c0-9a67-462a-8bc9-662b2a90957e",
+      "conditionValue": "string"
+    }
+  ],
+  "campaignAvailability": {
+    "bookingDateRange": {
+      "startDate": "2024-04-25T05:28:01.515Z",
+      "endDate": "2024-05-25T05:28:01.515Z"
+    },
+    "stayDateRange": {
+      "startDate": "2024-06-25T05:28:01.515Z",
+      "endDate": "2024-07-25T05:28:01.515Z"
+    },
+    "blackoutDateRanges": [
+      {
+        "startDate": "2024-07-26T05:28:01.515Z",
+        "endDate": "2024-07-27T05:28:01.515Z"
+      }
+    ]
+  },
+  "campaignParticipants": [
+    {
+      "parkCode": "TSTN"
+    },
+        {
+      "parkCode": "VNAT"
+    }
+  ]
+}
