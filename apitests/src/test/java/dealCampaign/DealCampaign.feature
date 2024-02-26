@@ -450,5 +450,38 @@ Feature: Deal Condition Entity validation
     Given path 'api/deal-campaign'
     When request dealCampaign
     When method post
-    Then status 400        
+    Then status 400     
+    
+  Scenario: Create deal campaign add and remove participants
+    ### Create a new deal campaign 
+    * set dealCampaign.campaignCode = campaignCode
+    Given path 'api/deal-campaign'
+    When request dealCampaignMultiple
+    When method post
+    Then status 200
+    And match response contains {id: '#uuid'}   
+    And print response.id
+    * def campId = response.id
+    ### Get all deal Campaign
+    Given path 'api/deal-campaign'
+    When request dealCampaign
+    When method get
+    Then status 200
+    ### Get individual campaign
+    Given path 'api/deal-campaign/'+ campId +''
+    When request dealCampaign
+    When method get
+    Then status 200
+    ### update individual campaign and remove both
+    * set dealCampaign.campaignParticipants = null
+    Given path 'api/deal-campaign/'+ campId +''
+    When request dealCampaign
+    When method put
+    Then status 200
+    
+    ### delete individual campaign
+    Given path 'api/deal-campaign/'+ campId +''
+    When request dealCampaign
+    When method delete
+    Then status 204	         
     	    

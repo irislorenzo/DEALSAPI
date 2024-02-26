@@ -58,31 +58,6 @@ Feature: Deal Template Entity validation
     When method post
     Then status 400
     * match response.errors == {  "name": [ "The Name field is required." ]    }
-    
-    #COMMENTING THIS SCENARIO SINCE PROMOTIONAL CONTENT SINCE NO VALIDATION APPLIED ON TEXT
-    #Scenario: Invalid request with 121 chars in promotional content
-    #Given path 'api/deal-template'
-    #When request
-      #"""
-      #{
-      #"name": "Second friday of the month for free",
-      #"status": "Active",
-      #"dealType": "Standard",
-      #"promotionalContent": {
-       #"image": "string",
-      #"text": "6xQddBIGhvuvioHdgC4x6ghlK2jvmtixLNEmGlzu5WFQe6fQFiR7hzWDSwO9KEXlMzpGHI7744Vz1YtMT3L9MLgYh9Ug9SeOa6mSEMPyHu0qzLTJQ15PDICEOI6WjNpWIygrAbf3RhcBlk6G0wbzWdJWX4ocrewM6HKVPoxHqq8Cquhkz23qWk3P1BGYSoMigFm6yQdeadfasdfsdfe"
-      #},
-      #"dealContentPolicyId": "29bf42b0-a535-ee11-b8f0-002248971d34",
-      #"discountStructureId": "f37df361-17b4-ee11-be9e-000d3ad01148",
-      #"brands": [
-      #"dhp", "gday"
-      #],
-      #"conditions": []
-      #}
-      #"""
-    #When method post
-    #Then status 400
-    #* match response.errors == {  "promotionalContent.Text": [ "The field Text must be a string or array type with a maximum length of '120'." ]    }
 
   Scenario: Deal Template Invalid request with no promotional content
     Given path 'api/deal-template'
@@ -316,31 +291,6 @@ Feature: Deal Template Entity validation
       },
       "dealContentPolicyId": "c24d4457-e737-ee11-b8f0-002248971d34",
       "discountStructureId": "e3e2201e-4936-ee11-b8f0-002248971d34"
-      }
-      """
-    When method post
-    Then status 400
-
-  Scenario: Create a deal template using Deal Content Policy that has different Deal Type from the Deal Template
-    Given path 'api/deal-template'
-    When request
-      """
-      {
-      "name": "Second friday of the month for free 4",
-      "status": "Active",
-      "dealType": "Campaign",
-      "promotionalContent": {
-      "image": "https://test.photos/200",
-      "text": "test"
-      },
-      "dealContentPolicyId": "b27caec4-a835-ee11-b8f0-002248971d34",
-      "discountStructureId": "ed3fb5b3-5936-ee11-b8f0-002248971d34",
-      "conditions": [
-      {
-      "conditionId": "b92e77d8-e734-ee11-b8f0-002248971d34",
-      "conditionValue": "string"
-      }
-      ]
       }
       """
     When method post

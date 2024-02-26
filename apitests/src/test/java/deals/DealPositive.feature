@@ -23,7 +23,7 @@ Feature: Deal Entity validation
  * def Description =  random_string(7)
 
   Scenario: Deal E2E
-    ## Create a Deal
+     Create a Deal
     Given path 'api/v2/deals'
     When request CreateDeal
     When method post
@@ -32,11 +32,87 @@ Feature: Deal Entity validation
     And print Description
     * match response == {"message":"Deal created successfully."}
     
-    ## Get a Deal
+     #Get a Deal
     Given path 'api/v2/deals'
     When method get
     Then status 200
-    * def newId = response.find(x => x.code == 'AUTOMATION').id
+    * def newId = response.find(x => x.code == 'DEALS_AUTOMATION').id
+    And print newId
+    
+     #Get a Deal  with specific ID
+    Given path 'api/v2/deals/'+ newId +''
+    When method get
+    Then status 200
+    
+     #Update a Deal
+    Given path 'api/v2/deals/'+ newId +''
+    When request PutDeal
+    When method put
+    Then status 200
+
+     #delete a Deal
+    Given path 'api/deals/'+ newId +''
+    When method delete
+    Then status 204
+    
+		Scenario: Get all Deals    
+     Get all Deals
+    Given path 'api/v2/deals/'
+    When method get
+    Then status 200
+    
+  	Scenario: Submit and Approve Deal
+     #Create a Deal
+    Given path 'api/v2/deals'
+    When request CreateDeal
+    When method post
+    Then status 201
+    And print Description
+    * match response == {"message":"Deal created successfully."}
+    
+    # Get a Deal
+    Given path 'api/v2/deals'
+    When method get
+    Then status 200
+    * def newId = response.find(x => x.code == 'DEALS_AUTOMATION').id
+    And print newId
+    
+     #Get a Deal  with specific ID
+    Given path 'api/v2/deals/'+ newId +''
+    When method get
+    Then status 200
+    
+    # Submit a Deal
+    Given path 'api/deals/'+ newId + '/submit'
+    When method POST
+    Then status 204
+    
+    # Approve a Deal
+    Given path 'api/deals/'+ newId + '/approve'
+     #Need BDM Role to approve/reject deal
+    * header Role = 'BusinessDevelopmentManager'
+    When method POST
+    Then status 204
+
+    # delete a Deal
+    Given path 'api/deals/'+ newId +''
+    When method delete
+    Then status 204    
+    
+ 	 	Scenario: Submit and Reject Deal
+    ## Create a Deal
+    Given path 'api/v2/deals'
+    When request CreateDeal
+    When method post
+    Then status 201
+    And print Description
+    * match response == {"message":"Deal created successfully."}
+    
+    ## Get recently created Deal
+    Given path 'api/v2/deals'
+    When method get
+    Then status 200
+    * def newId = response.find(x => x.code == 'DEALS_AUTOMATION').id
     And print newId
     
     ## Get a Deal  with specific ID
@@ -44,14 +120,25 @@ Feature: Deal Entity validation
     When method get
     Then status 200
     
-    ## Update a Deal
-    Given path 'api/v2/deals/'+ newId +''
-    When request PutDeal
-    When method put
-    Then status 200
+    ## Submit a Deal
+    Given path 'api/deals/'+ newId + '/submit'
+    When method POST
+    Then status 204
+    
+    ## Reject a Deal
+    Given path 'api/deals/'+ newId + '/reject'
+    #Need BDM Role to approve/reject deal
+    * header Role = 'BusinessDevelopmentManager'
+    When request 
+    """
+    {
+    "reason": "DEALS_AUTOMATION - REJECT DEAL"
+		}
+		"""
+    When method POST
+    Then status 204
 
     ## delete a Deal
     Given path 'api/deals/'+ newId +''
     When method delete
-    Then status 204
-    
+    Then status 204     

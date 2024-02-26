@@ -9,10 +9,7 @@ Feature: Deal Condition Entity validation
     * def UUID = uuid()
     * def result = call read('classpath:parks/get-token-Parks.feature')
     * karate.configure('headers', { 'Authorization': result.token });
-  
-    
-    
-    
+
   Scenario: Get all parks information
   
   Given path 'api/parks'
@@ -28,7 +25,7 @@ Feature: Deal Condition Entity validation
   Then status 200
   * match response == ParksSchema
   
-  Scenario: Get accommodations information for park
+  Scenario: Get accommodations information for specific park
  
   Given path '/api/parks/' + "WLAN" + '/accommodations' 
   When method get
@@ -62,7 +59,7 @@ Feature: Deal Condition Entity validation
   Then status 200
   * match response.accommodationId contains "WLAN-OTAV2-329-RT"
   
-   Scenario: GET parks using parkCode and verify if isFeatured is displayed
+  Scenario: GET parks using parkCode and verify if isFeatured is displayed
   
   Given path '/api/parks/' + "WLAN" + '/accommodations'  
   When method get

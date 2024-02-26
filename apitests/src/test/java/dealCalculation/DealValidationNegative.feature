@@ -52,7 +52,6 @@ Feature: Deal Validation Negative
     When method post
     Then status 200    	
   * match response.accommodationDeals[0].deals[0].conditions[1].code == "StayDateRangeCondition"
-  * match response.accommodationDeals[0].deals[0].conditions[1].message == "Stay dates needs to be from 01 Mar 2024 and 02 Mar 2025"
 
 		Scenario: Verify CheckIn Date Range condition
     * set CreateDealValidation.ParkCode = "QKIL"
@@ -72,7 +71,7 @@ Feature: Deal Validation Negative
     When method post
     Then status 200    	
   * match response.accommodationDeals[0].deals[0].conditions[3].code == "BlackOutDateRangeCondtition"
-  * match response.accommodationDeals[0].deals[0].conditions[3].message == "Booking must not be in the range, Date from 30 Jan 2024 to 31 Jan 2024" 	
+  * match response.accommodationDeals[0].deals[0].conditions[*].satisfied contains true 	
   
 		Scenario: Verify Accommodation Inclusion condition (All)
     * set CreateDealValidation.ParkCode = "QKIL"

@@ -1,6 +1,6 @@
 {
-  "code": "AUTOMATION",
-  "description": "AUTOMATION",
+  "code": "DEALS_AUTOMATION",
+  "description": "DEALS_AUTOMATION",
   "dealStatus": "created",
   "dealType": "standard",
   "parkCode": "WWOO",
