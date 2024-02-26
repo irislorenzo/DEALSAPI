@@ -21,6 +21,32 @@ Feature: Deal content policy validation
  * def code =  random_string(5)
  * def Description =  random_string(7)
   * def Name =  random_string(7)
+  
+   	Scenario: Get All Deal Content Policy
+  	#	Get all the available Content policy
+    Given path 'api/deal-content-policy'
+    When method get
+    Then status 200
+    
+    Scenario: Get Deal Content Policy via ID
+  	#	Get deal content first value
+    Given path 'api/deal-content-policy/'
+    When method get
+    Then status 200
+    * def dealcontentId = response[0].id
+    And print dealcontentId
+    Given path 'api/deal-content-policy/' + dealcontentId
+    Then status 200
+    
+    Scenario: Update Deal Content Policy via ID
+  	#	Get deal content first value
+    Given path 'api/deal-content-policy/'
+    When method get
+    Then status 200
+    * def dealcontentId = response[0].id
+    And print dealcontentId
+    Given path 'api/deal-content-policy/' + dealcontentId
+    Then status 200
     
 
   #Scenario: Create a Content policy - CONTENT POLICY HAS NOW DEFAULT VALUE EITHER STANDARD OR CAMPAIGN 2.21
@@ -81,24 +107,3 @@ Feature: Deal content policy validation
     #When method post
     #Then status 400
     #* match response.errors == {"name":["The Name field is required."]}
-
-  #Scenario: Create Invalid Content policy request without Deal Type - CONTENT POLICY HAS NOW DEFAULT VALUE EITHER STANDARD OR CAMPAIGN 2.21
-    #Given path 'api/deal-content-policy'
-    #When request
-      #"""
-      #{
-      #"id": "1e492045-eb21-44bb-95fa-3bf1f66e3e5d",
-      #"name": "Po",
-      #"description": "Test policy",
-      #"policyItems": [
-      #{
-        #"id": "1e492045-eb21-44bb-95fa-3bf1f66e3e5d",
-        #"label": "string",
-        #"value": "fixed"
-      #}
-      #]
-      #}
-      #"""
-    #When method post
-    #Then status 400
-    #* match response.errors == {"dealType": ["Required property 'dealType' not found in JSON. Path '', line 1, position 180."]}

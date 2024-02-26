@@ -5,13 +5,12 @@ Feature: Deal Validation Positive
     * url dealCalcUrl
     * def CreateDealValidation = read('../dealCalculation/CreateDealValidation.json')
     
-    Scenario: Verify 15% Off Discount
-    ## Get Deal Validation
+    Scenario: Verify 15% Off Discount Draft
+    # Get Deal Validation
     
     Given path 'api/accommodations/calculate-deals'
     When request CreateDealValidation
     And set CreateDealValidation.AccommodationPricing[0].PriceBreakdown[0].Date = "2024-02-10T00:00:00Z"
-    And print CreateDealValidation.AccommodationPricing[0].PriceBreakdown[0].Date
     When method post
     Then status 200  
  
