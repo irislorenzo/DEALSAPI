@@ -1,0 +1,33 @@
+{
+    "name": "Standard deal content policy",
+    "description": "Standard deal content policy",
+    "dealType": "standard",
+    "policyItems": [
+        {
+            "label": "Promotional content Image",
+            "fieldName": "PromotionalContent.Image",
+            "value": "fixed",
+            "dealContentPolicyId": "e13cc4cd-ec06-41dc-8e50-a2dfb54bb59c",
+            "id": "e13cc4cd-ec06-41dc-8e50-a2dfb54bb59b",
+            "isNew": false
+        },
+        {
+            "label": "Promotional content text",
+            "fieldName": "PromotionalContent.Text",
+            "value": "variable",
+            "dealContentPolicyId": "e13cc4cd-ec06-41dc-8e50-a2dfb54bb59c",
+            "id": "e13cc4cd-ec06-41dc-8e50-a2dfb54bb59c",
+            "isNew": false
+        },
+        {
+            "label": "Deal conditions",
+            "fieldName": "Conditions",
+            "value": "variable",
+            "dealContentPolicyId": "e13cc4cd-ec06-41dc-8e50-a2dfb54bb59c",
+            "id": "e13cc4cd-ec06-41dc-8e50-a2dfb54bb59f",
+            "isNew": false
+        }
+    ],
+    "id": "e13cc4cd-ec06-41dc-8e50-a2dfb54bb59c",
+    "isNew": false
+}

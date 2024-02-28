@@ -1,0 +1,11 @@
+{
+   "accommodationRequest": {
+    "propertyCode": "TEST",
+    "accommodationType": "cabins",
+    "arrive": "2025-01-01", 
+    "depart": "2025-01-05",
+    "adults": 2,
+    "kids":0,
+    "Infants":0    
+  }
+}

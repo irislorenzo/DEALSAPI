@@ -67,4 +67,22 @@ Feature: Deal Condition Entity validation
   #Not featured means no value on object
   * match response[*].isFeatured == []
   
+  Scenario: GET parks SEE and DO
+  
+  Given path '/api/parks/' + "WLAN" + '/see-and-do'  
+  When method get
+  Then status 200  
+  
+  Scenario: GET parks SEE and DO using non-existing parkCode
+  
+  Given path '/api/parks/' + "DDDD" + '/see-and-do'  
+  When method get
+  Then status 404    
+
+  Scenario: Verify that parkCode is required in GET parks SEE and DO 
+  
+  Given path '/api/parks/' + "" + '/see-and-do'  
+  When method get
+  Then status 404   
+  
   
