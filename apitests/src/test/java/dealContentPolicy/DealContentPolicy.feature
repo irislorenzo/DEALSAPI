@@ -4,7 +4,7 @@ Feature: Deal content policy validation
   Background: 
     * url dealsUrl
     * def DealContentPolicy = read('../dealContentPolicy/DealContentPolicy.json')
-    * def DealContentPolicyCreate = read('../dealContentPolicy/dealContentCreate.json')
+    * def PutDealContentPolicy = read('../dealContentPolicy/PutDealContentPolicy.json')
     * def uuid = function(){ return java.util.UUID.randomUUID() + '' }
     * def UUID = uuid()
     * def UUID1 = uuid()
@@ -44,8 +44,11 @@ Feature: Deal content policy validation
     When method get
     Then status 200
     * def dealcontentId = response[0].id
-    And print dealcontentId
+    And print dealcontentId   
     Given path 'api/deal-content-policy/' + dealcontentId
+    * set PutDealContentPolicy.policyItems[0].value = "variable"
+    When request PutDealContentPolicy
+    When method PUT
     Then status 200
     
 
@@ -86,24 +89,3 @@ Feature: Deal content policy validation
     #Given path 'api/deal-content-policy/'+ UUID +''
     #When method delete
     #Then status 204
-
-  #Scenario: Create Invalid Content policy request without name - CONTENT POLICY HAS NOW DEFAULT VALUE EITHER STANDARD OR CAMPAIGN 2.21
-    #Given path 'api/deal-content-policy'
-    #When request
-      #"""
-      #{
-      #"id": "3fa85f64-5717-4562-b3fc-2c963f66afa8",
-      #"description": "Test policy",
-      #"dealType": "standard",
-      #"policyItems": [
-      #{
-        #"id": "3fa85f64-5717-4562-b3fc-2c963f66afa8",
-        #"label": "string",
-        #"value": "fixed"
-      #}
-      #]
-      #}
-      #"""
-    #When method post
-    #Then status 400
-    #* match response.errors == {"name":["The Name field is required."]}

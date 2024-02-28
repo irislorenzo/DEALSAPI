@@ -21,5 +21,6 @@
     "accommodationSubType": ##string,
     "displayName": ##string,
     "pmsName": ##number,
-    "isPopular": ##boolean
+    "isPopular": ##boolean,
+    "ownership": ##string
 }
