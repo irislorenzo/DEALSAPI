@@ -2,7 +2,7 @@ package parksSearch;
 
 import com.intuit.karate.junit5.Karate;
 
-public class parksSearchRunnerTest {
+public class ParksSearchRunnerTest {
 	
 	@Karate.Test
     Karate ParksSearchPositive() {
