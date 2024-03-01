@@ -43,29 +43,29 @@ Feature: Deal Entity negative validation
     Then status 400
     * match response.errors == {"description":["The Description field is required."]}
     
-    #Scenario: Create a deal without a Deal Status #COMMENTED FOR NOW, BUG CREATED DL-1320
-    ## Create a Deal
-    #* set CreateDeal.dealId = UUID
-    #* set CreateDeal.code = code
-    #* set CreateDeal.description = Description
-    #* set CreateDeal.dealStatus = null
-    #Given path 'api/v2/deals'
-    #When request CreateDeal
-    #When method post
-    #Then status 400
-    #* match response.errors == {"dealStatus":["The DealStatus field is required."]}
+    Scenario: Create a deal without a Deal Status #COMMENTED FOR NOW, BUG CREATED DL-1320
+    # Create a Deal
+    * set CreateDeal.dealId = UUID
+    * set CreateDeal.code = code
+    * set CreateDeal.description = Description
+    * set CreateDeal.dealStatus = null
+    Given path 'api/v2/deals'
+    When request CreateDeal
+    When method post
+    Then status 400
+    * match response.errors == {"dealStatus":["The DealStatus field is required."]}
 
-    #Scenario: Create a deal without a Deal Type #COMMENTED FOR NOW, BUG CREATED DL-1320
-    ## Create a Deal
-    #* set CreateDeal.dealId = UUID
-    #* set CreateDeal.code = code
-    #* set CreateDeal.description = Description
-    #* set CreateDeal.dealType = null
-    #Given path 'api/v2/deals'
-    #When request CreateDeal
-    #When method post
-    #Then status 400
-    #* match response.errors == {"dealType":["The DealType field is required."]}
+    Scenario: Create a deal without a Deal Type #COMMENTED FOR NOW, BUG CREATED DL-1320
+    # Create a Deal
+    * set CreateDeal.dealId = UUID
+    * set CreateDeal.code = code
+    * set CreateDeal.description = Description
+    * set CreateDeal.dealType = null
+    Given path 'api/v2/deals'
+    When request CreateDeal
+    When method post
+    Then status 400
+    * match response.errors == {"dealType":["The DealType field is required."]}
 
     Scenario: Create a deal without a Park Code
     ## Create a Deal
@@ -92,17 +92,17 @@ Feature: Deal Entity negative validation
     Then status 400
     * match response == ["Publish date and Withdrawal date should not be in the past."]
     
-    #Scenario: Create a deal without Check In Days #COMMENTED FOR NOW GETTING 500 ERROR WHEN SETTING TO NULL, BUG ADDED DL-1320
-    ## Create a Deal
-    #* set CreateDeal.dealId = UUID
-    #* set CreateDeal.code = code
-    #* set CreateDeal.description = Description
-    #* set CreateDeal.checkInDays = null
-    #Given path 'api/v2/deals'
-    #When request CreateDeal
-    #When method post
-    #Then status 400
-    #* match response.errors == {"checkInDays":["The CheckInDays field is required."]}
+    Scenario: Create a deal without Check In Days #COMMENTED FOR NOW GETTING 500 ERROR WHEN SETTING TO NULL, BUG ADDED DL-1320
+    # Create a Deal
+    * set CreateDeal.dealId = UUID
+    * set CreateDeal.code = code
+    * set CreateDeal.description = Description
+    * set CreateDeal.checkInDays = null
+    Given path 'api/v2/deals'
+    When request CreateDeal
+    When method post
+    Then status 400
+    * match response.errors == {"checkInDays":["The CheckInDays field is required."]}
     
     Scenario: Create a deal without Accommodation Inclusion Condition
     ## Create a Deal
@@ -128,17 +128,17 @@ Feature: Deal Entity negative validation
     Then status 400
     * match response.errors == {"accommodationInclusionCondition":["AccommodationInclusionCondition is required."]}
     
-    #Scenario: Create a deal without Deal Approval Status  ##BUG added DL-1320
-    ## Create a Deal
-    #* set CreateDeal.dealId = UUID
-    #* set CreateDeal.code = code
-    #* set CreateDeal.description = Description
-    #* set CreateDeal.dealApprovalStatus = null
-    #Given path 'api/v2/deals'
-    #When request CreateDeal
-    #When method post
-    #Then status 400
-    #* match response.errors == {"dealApprovalStatus":["The DealApprovalStatus field is required."]}        
+    Scenario: Create a deal without Deal Approval Status  ##BUG added DL-1320
+    # Create a Deal
+    * set CreateDeal.dealId = UUID
+    * set CreateDeal.code = code
+    * set CreateDeal.description = Description
+    * set CreateDeal.dealApprovalStatus = null
+    Given path 'api/v2/deals'
+    When request CreateDeal
+    When method post
+    Then status 400
+    * match response.errors == {"dealApprovalStatus":["The DealApprovalStatus field is required."]}        
     
   	Scenario: Submit an Approved Deal    
     ## Get all Deals

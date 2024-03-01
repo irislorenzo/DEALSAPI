@@ -1,0 +1,24 @@
+[
+  {
+    "code": ##string,
+    "description": ##string,
+    "conditionValueType": ##string,
+    "conditionRuleId": ##uuid,
+    "id": ##uuid,
+    "isNew": ##boolean
+  },
+  {
+    "code": ##string,
+    "description": ##string,
+    "conditionValueType": ##string,
+    "id": ##uuid,
+    "isNew": ##boolean
+  },
+  {
+    "code": ##string,
+    "description": ##string,
+    "conditionValueType": ##string,
+    "id": ##uuid,
+    "isNew": ##boolean
+  }
+]
