@@ -80,44 +80,44 @@ Feature: Deal Template Entity validation
     * match response.errors == {  "promotionalContent": [ "The PromotionalContent field is required." ]    }
 
   #FOR CONFIRMATION IF THE VALIDATION OF STATUS FIELD WOULD STILL BE REQUIRED - CURRENT IMPLEMENTATION IT SETS TO INACTIVE	
-  #Scenario: Deal Template Invalid request without Status
-    #Given path 'api/deal-template'
-    #When request
-      #"""
-      #{
-      #"name": "Second friday of the month for free",
-      #"dealType": "Standard",
-      #"promotionalContent": {
-      #"image": "https://test.photos/200",
-      #"text": "test"
-      #},
-      #"dealContentPolicyId": "37722ec5-f920-4ef8-a65c-d82a4b7ee54f",
-      #"discountStructureId": "fa6aba27-8f02-4e63-86f7-dd3ed2bfe3e5"
-      #}
-      #"""
-    #When method post
-    #Then status 400
-    #* match response.errors == {  "status": [ "The Status field is required." ]    }
+  Scenario: Deal Template Invalid request without Status
+    Given path 'api/deal-template'
+    When request
+      """
+      {
+      "name": "Second friday of the month for free",
+      "dealType": "Standard",
+      "promotionalContent": {
+      "image": "https://test.photos/200",
+      "text": "test"
+      },
+      "dealContentPolicyId": "37722ec5-f920-4ef8-a65c-d82a4b7ee54f",
+      "discountStructureId": "fa6aba27-8f02-4e63-86f7-dd3ed2bfe3e5"
+      }
+      """
+    When method post
+    Then status 400
+    * match response.errors == {  "status": [ "The Status field is required." ]    }
 
 	#FOR CONFIRMATION IF THE VALIDATION OF DEAL TYPE FIELD WOULD STILL BE REQUIRED - CURRENT IMPLEMENTATION IT SETS TO STANDARD	
-  #Scenario: Invalid request without Deal Type
-    #Given path 'api/deal-template'
-    #When request
-      #"""
-      #{
-      #"name": "Second friday of the month for free",
-      #"status": "Active",
-      #"promotionalContent": {
-      #"image": "https://test.photos/200",
-      #"text": "test"
-      #},
-      #"dealContentPolicyId": "37722ec5-f920-4ef8-a65c-d82a4b7ee54f",
-      #"discountStructureId": "fa6aba27-8f02-4e63-86f7-dd3ed2bfe3e5"
-      #}
-      #"""
-    #When method post
-    #Then status 400
-    #* match response.errors == {  "dealType": [ "The DealType field is required." ]    }
+  Scenario: Invalid request without Deal Type
+    Given path 'api/deal-template'
+    When request
+      """
+      {
+      "name": "Second friday of the month for free",
+      "status": "Active",
+      "promotionalContent": {
+      "image": "https://test.photos/200",
+      "text": "test"
+      },
+      "dealContentPolicyId": "37722ec5-f920-4ef8-a65c-d82a4b7ee54f",
+      "discountStructureId": "fa6aba27-8f02-4e63-86f7-dd3ed2bfe3e5"
+      }
+      """
+    When method post
+    Then status 400
+    * match response.errors == {  "dealType": [ "The DealType field is required." ]    }
 
   Scenario: Invalid request using incorrect value for Status
     Given path 'api/deal-template'
