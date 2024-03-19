@@ -79,8 +79,9 @@ Feature: Deal Template Entity validation
     Then status 400
     * match response.errors == {  "promotionalContent": [ "The PromotionalContent field is required." ]    }
 
-  #FOR CONFIRMATION IF THE VALIDATION OF STATUS FIELD WOULD STILL BE REQUIRED - CURRENT IMPLEMENTATION IT SETS TO INACTIVE	
+  	
   Scenario: Deal Template Invalid request without Status
+  #FIXED 3.6.24
     Given path 'api/deal-template'
     When request
       """
@@ -99,8 +100,9 @@ Feature: Deal Template Entity validation
     Then status 400
     * match response.errors == {  "status": [ "The Status field is required." ]    }
 
-	#FOR CONFIRMATION IF THE VALIDATION OF DEAL TYPE FIELD WOULD STILL BE REQUIRED - CURRENT IMPLEMENTATION IT SETS TO STANDARD	
+
   Scenario: Invalid request without Deal Type
+  #FIXED 3.6.24
     Given path 'api/deal-template'
     When request
       """

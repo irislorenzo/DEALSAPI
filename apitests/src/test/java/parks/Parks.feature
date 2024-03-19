@@ -77,7 +77,7 @@ Feature: Deal Condition Entity validation
   
   Given path '/api/parks/' + "DDDD" + '/see-and-do'  
   When method get
-  Then status 404    
+  Then status 200
 
   Scenario: Verify that parkCode is required in GET parks SEE and DO 
   

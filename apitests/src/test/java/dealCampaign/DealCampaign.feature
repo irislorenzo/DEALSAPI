@@ -172,9 +172,10 @@ Feature: Deal Condition Entity validation
       """
     When method post
     Then status 400
-    #* match response.errors == { "campaignDescription": [ "The CampaignDescription field is required." ]  }
+    * match response.errors == { "campaignDescription": [ "The CampaignDescription field is required." ]  }
 
-  Scenario: Create a deal campaign without Check In Days #WILL RECOMMENT ONCE BUG IS FIXED - https://discoveryparks.atlassian.net/browse/DL20-1322
+  Scenario: Create a deal campaign without Check In Days 
+  #BUG FIXED 3.6.24 - https://discoveryparks.atlassian.net/browse/DL20-1322
     Given path 'api/deal-campaign'
     When request
       """
@@ -343,7 +344,7 @@ Feature: Deal Condition Entity validation
       """
     When method post
     Then status 400
-    #* match response.errors == { "campaignCode": ["The CampaignCode field is required."]  }
+    * match response.errors == { "campaignCode": ["The CampaignCode field is required."]  }
     
   Scenario: Create deal campaign and multiple participant # - COMMENTING THIS ONE AFFECTED WITH THE BUG https://discoveryparks.atlassian.net/browse/DL20-1234
     ## Create a new deal campaign 
