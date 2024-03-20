@@ -7,32 +7,56 @@ Feature: Dynamic Offer Positive Test Validation
 
   Scenario: Verify Base Offer on Deal
     
-    When request DynamicOffer
-    When method post
+    * param PropertyCode = 'TEST'
+    * param Arrive = '2024-05-08'
+    * param Depart = '2024-05-10'
+    * param Adults = 2
+    * param Kids = 0
+    * param Infants = 0
+    Given path null
+    When method GET
     Then status 200     
-    * match response.offersGroup.parkOffers[0].accommodationOffers[0].offers[0].offerTemplateCode == "baseOffer"
+    * match response.offerItems[*].offerTemplateCode contains "baseOffer"
     
   Scenario: Verify Member Offer on Deal
 
-    When request DynamicOffer
-    When method post
+    * param PropertyCode = 'TEST'
+    * param Arrive = '2024-05-08'
+    * param Depart = '2024-05-10'
+    * param Adults = 2
+    * param Kids = 0
+    * param Infants = 0
+    Given path null
+    When method GET
     Then status 200     
-    * match response.offersGroup.parkOffers[0].accommodationOffers[0].offers[1].offerTemplateCode == "memberOffer"    
+    * match response.offerItems[*].offerTemplateCode contains "memberOffer"
 
   Scenario: Verify Deal Offer on Deal
 
-    When request DynamicOffer
-    When method post
+    * param PropertyCode = 'TEST'
+    * param Arrive = '2024-05-08'
+    * param Depart = '2024-05-10'
+    * param Adults = 2
+    * param Kids = 0
+    * param Infants = 0
+    Given path null
+    When method GET
     Then status 200     
-    * match response.offersGroup.parkOffers[0].accommodationOffers[0].offers[2].offerTemplateCode == "dealOffer"  
+    * match response.offerItems[*].offerTemplateCode contains "dealOffer"
     
     
-    ###Offer Store
+    ##Offer Store
     Scenario: Verify Dynamic offer offer store
     
-    When request DynamicOffer
-    When method post
-    Then status 200 
+    * param PropertyCode = 'TEST'
+    * param Arrive = '2024-05-08'
+    * param Depart = '2024-05-10'
+    * param Adults = 2
+    * param Kids = 0
+    * param Infants = 0
+    Given path null
+    When method GET
+    Then status 200
     * def shoppingID = response.shoppingResponseRefID
     
     ## valid shopping ID
