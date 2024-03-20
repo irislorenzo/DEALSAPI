@@ -47,7 +47,7 @@ function fn() {
     config.dealsUrl = 'https://test-deals-v2-as.azurewebsites.net/';
     config.parksUrl = 'https://test-parks-as.azurewebsites.net/';
     config.dealCalcUrl = 'https://test-deals-v2-calc-as.azurewebsites.net/';
-    config.dynamicOfferUrl = 'https://test-offers-as.azurewebsites.net/api/offers';
+    config.dynamicOfferUrl = 'https://test-offers-as.azurewebsites.net/api/';
     config.parkSearchUrl = 'https://test-search-as.azurewebsites.net/';
   } else if(env == 'memberv2'){
 	    config.memberUrl = 'https://test-int-dhp-api-membership-net6.azurewebsites.net/';

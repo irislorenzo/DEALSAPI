@@ -12,7 +12,7 @@ Feature: Dynamic Offer Negative Test Validation
     * param Adults = 2
     * param Kids = null
     * param Infants = 0
-    Given path null
+    Given path '/offers/'
     When method GET   
     Then status 400     
     * match response.errors == {"kids":["The Kids field is required."]}
@@ -23,7 +23,7 @@ Feature: Dynamic Offer Negative Test Validation
     * param Depart = '2024-05-10'
     * param Kids = 0
     * param Infants = 0
-    Given path null
+    Given path '/offers/'
     When method GET   
     Then status 400        
     * match response.errors == {"adults":["The Adults field is required."]}
@@ -34,7 +34,7 @@ Feature: Dynamic Offer Negative Test Validation
     * param Depart = '2024-05-10'
     * param Adults = 2
     * param Kids = 0
-    Given path null
+    Given path '/offers/'
     When method GET   
     Then status 400        
     * match response.errors == {"infants":["The Infants field is required."]}
@@ -45,7 +45,7 @@ Feature: Dynamic Offer Negative Test Validation
     * param Adults = 2
     * param Kids = 0
     * param Infants = 0
-    Given path null
+    Given path '/offers/'
     When method GET   
     Then status 400        
     * match response.errors == {"arrive.Arrive":["The Arrive field is required."]}     
@@ -56,7 +56,7 @@ Feature: Dynamic Offer Negative Test Validation
     * param Adults = 2
     * param Kids = 0
     * param Infants = 0
-    Given path null
+    Given path '/offers/'
     When method GET   
     Then status 400        
     * match response.errors == {"depart.Depart":["The Depart field is required."]}   
@@ -67,7 +67,7 @@ Feature: Dynamic Offer Negative Test Validation
     * param Adults = 2
     * param Kids = 0
     * param Infants = 0
-    Given path null
+    Given path '/offers/'
     When method GET   
     Then status 400     
     * match response.errors == {"propertyCode":["The PropertyCode field is required."]} 

@@ -13,7 +13,7 @@ Feature: Dynamic Offer Positive Test Validation
     * param Adults = 2
     * param Kids = 0
     * param Infants = 0
-    Given path null
+    Given path '/offers/'
     When method GET
     Then status 200     
     * match response.offerItems[*].offerTemplateCode contains "baseOffer"
@@ -26,7 +26,7 @@ Feature: Dynamic Offer Positive Test Validation
     * param Adults = 2
     * param Kids = 0
     * param Infants = 0
-    Given path null
+    Given path '/offers/'
     When method GET
     Then status 200     
     * match response.offerItems[*].offerTemplateCode contains "memberOffer"
@@ -39,7 +39,7 @@ Feature: Dynamic Offer Positive Test Validation
     * param Adults = 2
     * param Kids = 0
     * param Infants = 0
-    Given path null
+    Given path '/offers/'
     When method GET
     Then status 200     
     * match response.offerItems[*].offerTemplateCode contains "dealOffer"
@@ -54,13 +54,13 @@ Feature: Dynamic Offer Positive Test Validation
     * param Adults = 2
     * param Kids = 0
     * param Infants = 0
-    Given path null
+    Given path '/offers/'
     When method GET
     Then status 200
     * def shoppingID = response.shoppingResponseRefID
     
     ## valid shopping ID
-    When path ''+ shoppingID +''
+    When path '/offers/'+ shoppingID +''
     When method get
     Then status 200 
     
@@ -68,3 +68,10 @@ Feature: Dynamic Offer Positive Test Validation
     When path 'b4362cf4-6ce4-4a98-89c3-8a66e76fecd7'
     When method get
     Then status 404
+    
+  Scenario: Verify alaCarte offers 
+  
+    Given path '/alacarte-offers/'
+    When method GET
+    Then status 200     
+    * match response.offerItems[*].serviceCollectionId contains "NewMembership"    
