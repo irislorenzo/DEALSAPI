@@ -101,6 +101,7 @@ Feature: Deal Entity validation
     
  	 	Scenario: Submit and Reject Deal
     ## Create a Deal
+    * set CreateDeal.code = "SUBMIT_AND_REJECT"
     Given path 'api/v2/deals'
     When request CreateDeal
     When method post
@@ -112,7 +113,7 @@ Feature: Deal Entity validation
     Given path 'api/v2/deals'
     When method get
     Then status 200
-    * def newId = response.find(x => x.code == 'DEALS_AUTOMATION').id
+    * def newId = response.find(x => x.code == 'SUBMIT_AND_REJECT').id
     And print newId
     
     ## Get a Deal  with specific ID

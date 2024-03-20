@@ -249,6 +249,7 @@ Feature: Deal Entity negative validation
     
   Scenario: Reject a Deal without Business Development Manager Role
     ## Create a Deal
+    * set CreateDeal.code = "REJECT_WO_BDM_ROLE"
     Given path 'api/v2/deals'
     When request CreateDeal
     When method post
@@ -260,7 +261,7 @@ Feature: Deal Entity negative validation
     Given path 'api/v2/deals'
     When method get
     Then status 200
-    * def newId = response.find(x => x.code == 'DEALS_AUTOMATION').id
+    * def newId = response.find(x => x.code == 'REJECT_WO_BDM_ROLE').id
     And print newId
     
     ## Get a Deal  with specific ID
@@ -294,6 +295,7 @@ Feature: Deal Entity negative validation
                 
   	Scenario: Approve deal from Drafted State
      #Create a Deal
+    * set CreateDeal.code = "APPROVE_FROM_DRAFT"
     Given path 'api/v2/deals'
     When request CreateDeal
     When method post
@@ -305,7 +307,7 @@ Feature: Deal Entity negative validation
     Given path 'api/v2/deals'
     When method get
     Then status 200
-    * def newId = response.find(x => x.code == 'DEALS_AUTOMATION').id
+    * def newId = response.find(x => x.code == 'APPROVE_FROM_DRAFT').id
     And print newId
     
      #Get a Deal  with specific ID
