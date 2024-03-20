@@ -13,7 +13,7 @@ Feature: Dynamic Offer View Conditions Of a Deal
     * param Adults = 2
     * param Kids = 0
     * param Infants = 0
-    Given path null
+    Given path '/offers/'
     When method GET
     Then status 200
   	* match response.offerItems[*].deal.eligibility.conditions[*].conditionCode contains 'bookingDateRangeCondition'
@@ -26,7 +26,7 @@ Feature: Dynamic Offer View Conditions Of a Deal
     * param Adults = 2
     * param Kids = 0
     * param Infants = 0
-    Given path null
+    Given path '/offers/'
     When method GET
     Then status 200
   	* match response.offerItems[*].deal.eligibility.conditions[*].conditionCode contains 'stayDateRangeCondition'     
@@ -39,7 +39,7 @@ Feature: Dynamic Offer View Conditions Of a Deal
     * param Adults = 2
     * param Kids = 0
     * param Infants = 0
-    Given path null
+    Given path '/offers/'
     When method GET
     Then status 200
   	* match response.offerItems[*].deal.eligibility.conditions[*].conditionCode contains 'checkInDaysCondition'         
@@ -52,7 +52,7 @@ Feature: Dynamic Offer View Conditions Of a Deal
     * param Adults = 2
     * param Kids = 0
     * param Infants = 0
-    Given path null
+    Given path '/offers/'
     When method GET
     Then status 200
   	* match response.offerItems[*].deal.eligibility.conditions[*].conditionCode contains 'accommodationInclusionCondition'     
@@ -65,7 +65,7 @@ Feature: Dynamic Offer View Conditions Of a Deal
     * param Adults = 2
     * param Kids = 0
     * param Infants = 0
-    Given path null
+    Given path '/offers/'
     When method GET
     Then status 200
   	* match response.offerItems[*].deal.eligibility.conditions[*].conditionCode contains 'discountStructureCondition'  
@@ -78,7 +78,7 @@ Feature: Dynamic Offer View Conditions Of a Deal
     * param Adults = 2
     * param Kids = 0
     * param Infants = 0
-    Given path null
+    Given path '/offers/'
     When method GET
     Then status 200
   	* match response.offerItems[*].deal.eligibility.conditions[*].conditionCode contains 'advanceBookingDaysCondition'   
@@ -91,7 +91,7 @@ Feature: Dynamic Offer View Conditions Of a Deal
     * param Adults = 2
     * param Kids = 0
     * param Infants = 0
-    Given path null
+    Given path '/offers/'
     When method GET
     Then status 200
   	* match response.offerItems[*].deal.eligibility.conditions[*].conditionCode contains 'maximumNightStayCondition'      
