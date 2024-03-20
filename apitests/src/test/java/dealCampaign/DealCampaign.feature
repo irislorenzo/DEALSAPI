@@ -19,6 +19,7 @@ Feature: Deal Condition Entity validation
       """
     * def campaignCode =  'AUTO - ' + random_string(5)
     * def campaignCodeupdated =  'AUTOUPDATE - ' + random_string(7)
+    * def campaignUniqeGuid = 'AUTO - ' + random_string(10) 
 
   Scenario: Create deal campaign
     ### Create a new deal campaign 
@@ -54,6 +55,7 @@ Feature: Deal Condition Entity validation
     Then status 204
 
   ### negative validations
+
   Scenario: Create a deal campaign without campaign name
     Given path 'api/deal-campaign'
     When request
@@ -113,6 +115,7 @@ Feature: Deal Condition Entity validation
     When method post
     Then status 400
     #* match response.errors == {"campaignName": ["The CampaignName field is required." ]  }
+
 
   Scenario: Create a deal campaign without Campaign Description
     Given path 'api/deal-campaign'
@@ -174,6 +177,7 @@ Feature: Deal Condition Entity validation
     Then status 400
     * match response.errors == { "campaignDescription": [ "The CampaignDescription field is required." ]  }
 
+
   Scenario: Create a deal campaign without Check In Days 
   #BUG FIXED 3.6.24 - https://discoveryparks.atlassian.net/browse/DL20-1322
     Given path 'api/deal-campaign'
@@ -226,6 +230,7 @@ Feature: Deal Condition Entity validation
     When method post
     Then status 400
     * match response.errors == { "checkInDays": [ "The CheckInDays field is required." ]  }
+
 
   Scenario: Create a deal campaign without Accommodation Inclusion Condition
     Given path 'api/deal-campaign'
@@ -286,6 +291,7 @@ Feature: Deal Condition Entity validation
     When method post
     Then status 400
     * match response.errors == { "accommodationInclusionCondition": [ "AccommodationInclusionCondition is required." ]  }
+
 
   Scenario: Create a deal campaign without Campaign Code
     Given path 'api/deal-campaign'
@@ -348,7 +354,7 @@ Feature: Deal Condition Entity validation
     
   Scenario: Create deal campaign and multiple participant # - COMMENTING THIS ONE AFFECTED WITH THE BUG https://discoveryparks.atlassian.net/browse/DL20-1234
     ## Create a new deal campaign 
-    * set dealCampaign.campaignCode = campaignCode
+    * set dealCampaignMultiple.campaignCode = campaignUniqeGuid
     Given path 'api/deal-campaign'
     When request dealCampaignMultiple
     When method post
@@ -381,7 +387,7 @@ Feature: Deal Condition Entity validation
     
   Scenario: Create Deal Campaign and retrieve multiple status
     ### Create a new deal campaign 
-    * set dealCampaign.campaignCode = campaignCode
+    * set dealCampaignMultiple.campaignCode = campaignUniqeGuid
     Given path 'api/deal-campaign'
     When request dealCampaignMultiple
     When method post
@@ -407,8 +413,9 @@ Feature: Deal Condition Entity validation
     Given path 'api/deal-campaign/'+ campId +''
     When request dealCampaign
     When method delete
-    Then status 204    	      
-    
+    Then status 204    	
+          
+
   Scenario: Get Deal Campaign and retrieve single status
     ### Get individual campaign
     Given path 'api/deal-campaign/'+ 'c9be8800-3dd1-ee11-85f7-002248975a78' +''
@@ -424,7 +431,8 @@ Feature: Deal Condition Entity validation
     When method get
     Then status 200
     * match response.campaignParticipants[0].status == 'invited'    
-    
+  
+
   Scenario: Create Deal Campaign with invalid Discount Structure
     ### Create a new deal campaign 
     * set dealCampaign.campaignCode = campaignCode
@@ -434,6 +442,7 @@ Feature: Deal Condition Entity validation
     When method post
     Then status 400
     
+
   Scenario: Create Deal Campaign without Discount Structure
     ### Create a new deal campaign 
     * set dealCampaign.campaignCode = campaignCode
@@ -442,7 +451,7 @@ Feature: Deal Condition Entity validation
     When request dealCampaign
     When method post
     Then status 400    
-    
+  
   Scenario: Create Deal Campaign without Campaign Name, Campaign Code, and Campaign Description
     ### Create a new deal campaign 
     * set dealCampaign.campaignCode = null
@@ -455,9 +464,9 @@ Feature: Deal Condition Entity validation
     
   Scenario: Create deal campaign add and remove participants
     ### Create a new deal campaign 
-    * set dealCampaign.campaignCode = campaignCode
+    * set dealCampaign.campaignCode = campaignUniqeGuid
     Given path 'api/deal-campaign'
-    When request dealCampaignMultiple
+    When request dealCampaign
     When method post
     Then status 200
     And match response contains {id: '#uuid'}   

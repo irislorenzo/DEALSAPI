@@ -7,52 +7,94 @@ Feature: Dynamic Offer View Conditions Of a Deal
 
   Scenario: Verify Booking Date Range Condition
     
-  When request DynamicOfferViewConditions
-  When method post
-  Then status 200     
-  * match response.offersGroup.parkOffers[*].accommodationOffers[*].offers[*].offerItems[*].eligibility.conditions[*].conditionCode contains 'bookingDateRangeCondition'
+    * param PropertyCode = 'TEST'
+    * param Arrive = '2025-01-01'
+    * param Depart = '2025-01-05'
+    * param Adults = 2
+    * param Kids = 0
+    * param Infants = 0
+    Given path null
+    When method GET
+    Then status 200
+  	* match response.offerItems[*].deal.eligibility.conditions[*].conditionCode contains 'bookingDateRangeCondition'
 
   Scenario: Verify Stay Date Range Condition
     
-  When request DynamicOfferViewConditions
-  When method post
-  Then status 200     
-  * match response.offersGroup.parkOffers[*].accommodationOffers[*].offers[*].offerItems[*].eligibility.conditions[*].conditionCode contains 'stayDateRangeCondition'  
+    * param PropertyCode = 'TEST'
+    * param Arrive = '2025-01-01'
+    * param Depart = '2025-01-05'
+    * param Adults = 2
+    * param Kids = 0
+    * param Infants = 0
+    Given path null
+    When method GET
+    Then status 200
+  	* match response.offerItems[*].deal.eligibility.conditions[*].conditionCode contains 'stayDateRangeCondition'     
 
   Scenario: Verify Check-In Days Condition
     
-  When request DynamicOfferViewConditions
-  When method post
-  Then status 200     
-  * match response.offersGroup.parkOffers[*].accommodationOffers[*].offers[*].offerItems[*].eligibility.conditions[*].conditionCode contains 'checkInDaysCondition'
+    * param PropertyCode = 'TEST'
+    * param Arrive = '2025-01-01'
+    * param Depart = '2025-01-05'
+    * param Adults = 2
+    * param Kids = 0
+    * param Infants = 0
+    Given path null
+    When method GET
+    Then status 200
+  	* match response.offerItems[*].deal.eligibility.conditions[*].conditionCode contains 'checkInDaysCondition'         
   
   Scenario: Verify Accommodation Inclusion Condition
     
-  When request DynamicOfferViewConditions
-  When method post
-  Then status 200     
-  * match response.offersGroup.parkOffers[*].accommodationOffers[*].offers[*].offerItems[*].eligibility.conditions[*].conditionCode contains 'accommodationInclusionCondition'
+    * param PropertyCode = 'TEST'
+    * param Arrive = '2025-01-01'
+    * param Depart = '2025-01-05'
+    * param Adults = 2
+    * param Kids = 0
+    * param Infants = 0
+    Given path null
+    When method GET
+    Then status 200
+  	* match response.offerItems[*].deal.eligibility.conditions[*].conditionCode contains 'accommodationInclusionCondition'     
   
   Scenario: Verify Discount Structure Condition
     
-  When request DynamicOfferViewConditions
-  When method post
-  Then status 200     
-  * match response.offersGroup.parkOffers[*].accommodationOffers[*].offers[*].offerItems[*].eligibility.conditions[*].conditionCode contains 'discountStructureCondition'
+    * param PropertyCode = 'TEST'
+    * param Arrive = '2025-01-01'
+    * param Depart = '2025-01-05'
+    * param Adults = 2
+    * param Kids = 0
+    * param Infants = 0
+    Given path null
+    When method GET
+    Then status 200
+  	* match response.offerItems[*].deal.eligibility.conditions[*].conditionCode contains 'discountStructureCondition'  
   
   Scenario: Verify Advance Booking Day Condition
     
-  When request DynamicOfferViewConditions
-  When method post
-  Then status 200     
-  * match response.offersGroup.parkOffers[*].accommodationOffers[*].offers[*].offerItems[*].eligibility.conditions[*].conditionCode contains 'advanceBookingDaysCondition'
+    * param PropertyCode = 'TEST'
+    * param Arrive = '2025-01-01'
+    * param Depart = '2025-01-05'
+    * param Adults = 2
+    * param Kids = 0
+    * param Infants = 0
+    Given path null
+    When method GET
+    Then status 200
+  	* match response.offerItems[*].deal.eligibility.conditions[*].conditionCode contains 'advanceBookingDaysCondition'   
   
   Scenario: Verify Maximum Night Stay Condition
     
-  When request DynamicOfferViewConditions
-  When method post
-  Then status 200     
-  * match response.offersGroup.parkOffers[*].accommodationOffers[*].offers[*].offerItems[*].eligibility.conditions[*].conditionCode contains 'maximumNightStayCondition'
+    * param PropertyCode = 'TEST'
+    * param Arrive = '2025-01-01'
+    * param Depart = '2025-01-05'
+    * param Adults = 2
+    * param Kids = 0
+    * param Infants = 0
+    Given path null
+    When method GET
+    Then status 200
+  	* match response.offerItems[*].deal.eligibility.conditions[*].conditionCode contains 'maximumNightStayCondition'      
               
     
    
