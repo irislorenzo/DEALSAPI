@@ -4,6 +4,8 @@ Feature: Deal Calculation
   Background: 
     * url dealCalcUrl
     * def CreateDealCalculation = read('../dealCalculation/CreateDealCalculation.json')
+    * def result = call read('classpath:dealCalculation/get-token-DealCalculation.feature')
+    * karate.configure('headers', { 'Authorization': result.token });
 
     Scenario: Verify Additional Waiver not applied
     # Get Deal Validation

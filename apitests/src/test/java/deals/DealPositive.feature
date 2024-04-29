@@ -21,9 +21,11 @@ Feature: Deal Entity validation
  """
  * def code =  random_string(5)
  * def Description =  random_string(7)
+    * def result = call read('classpath:deals/get-token-Admin-Deals.feature')
+    * karate.configure('headers', { 'Authorization': result.token });
 
-  Scenario: Deal E2E
-     Create a Deal
+  Scenario: Deal E2E 
+    # Create a Deal
     * set CreateDeal.code = 'DEAL_E2E' 
     Given path 'api/v2/deals'
     When request CreateDeal
@@ -57,14 +59,17 @@ Feature: Deal Entity validation
     Then status 204
     
 		Scenario: Get all Deals    
-     Get all Deals
+		* def result = call read('classpath:deals/get-token-Admin-Deals.feature')
+    * karate.configure('headers', { 'Authorization': result.token });
+		
+     #Get all Deals
     Given path 'api/v2/deals/'
     When method get
     Then status 200
     
-  	Scenario: Submit and Approve Deal
-     #Create a Deal
-    * set CreateDeal.code = 'SUBMIT_AND_APPROVE_DEAL' 
+  	Scenario:  Verify that created Deal as an Admin is set as Approved
+    #Create a Deal
+    * set CreateDeal.code = 'APPROVE_DEAL' 
     Given path 'api/v2/deals'
     When request CreateDeal
     When method post
@@ -72,61 +77,64 @@ Feature: Deal Entity validation
     And print Description
     * match response == {"message":"Deal created successfully."}
     
-    # Get a Deal
+     #Get a Deal
     Given path 'api/v2/deals'
     When method get
     Then status 200
-    * def newId = response.find(x => x.code == 'SUBMIT_AND_APPROVE_DEAL').id
+    * def newId = response.find(x => x.code == 'APPROVE_DEAL').id
     And print newId
     
      #Get a Deal  with specific ID
     Given path 'api/v2/deals/'+ newId +''
     When method get
+    Then status 200    
+    * match response.dealApprovalStatus == 'approved'
+
+     #delete a Deal
+    Given path 'api/deals/'+ newId +''
+    When method delete
+    Then status 204    
+    
+ 	 	Scenario: Submit Deal as an Admin
+     # Get Drafted status Deal
+    Given path 'api/v2/deals'
+    When method get
     Then status 200
+    * def newId = response.find(x => x.dealApprovalStatus == 'drafted').id
+    And print newId
     
     # Submit a Deal
     Given path 'api/deals/'+ newId + '/submit'
     When method POST
     Then status 204
     
-    # Approve a Deal
+    Scenario: Approve Deal as an Admin
+     #Get a Deal
+    Given path 'api/v2/deals'
+    When method get
+    Then status 200
+    * def newId = response.find(x => x.dealApprovalStatus == 'awaitingApproval').id
+    And print newId
+    
+     #Approve a Deal
     Given path 'api/deals/'+ newId + '/approve'
      #Need BDM Role to approve/reject deal
     * header Role = 'BusinessDevelopmentManager'
     When method POST
-    Then status 204
-
-    # delete a Deal
+    Then status 204   
+    
+    #delete a Deal
     Given path 'api/deals/'+ newId +''
     When method delete
-    Then status 204    
+    Then status 204   
     
- 	 	Scenario: Submit and Reject Deal
-    ## Create a Deal
-    * set CreateDeal.code = "SUBMIT_AND_REJECT"
-    Given path 'api/v2/deals'
-    When request CreateDeal
-    When method post
-    Then status 201
-    And print Description
-    * match response == {"message":"Deal created successfully."}
-    
-    ## Get recently created Deal
+    Scenario: Reject Deal as an Admin
+    ## Get awaitingApprovalStatus Deal
     Given path 'api/v2/deals'
     When method get
     Then status 200
-    * def newId = response.find(x => x.code == 'SUBMIT_AND_REJECT').id
+    * def newId = response.find(x => x.dealApprovalStatus == 'awaitingApproval').id
     And print newId
-    
-    ## Get a Deal  with specific ID
-    Given path 'api/v2/deals/'+ newId +''
-    When method get
-    Then status 200
-    
-    ## Submit a Deal
-    Given path 'api/deals/'+ newId + '/submit'
-    When method POST
-    Then status 204
     
     ## Reject a Deal
     Given path 'api/deals/'+ newId + '/reject'
@@ -140,8 +148,8 @@ Feature: Deal Entity validation
 		"""
     When method POST
     Then status 204
-
-    ## delete a Deal
+    
+    #delete a Deal
     Given path 'api/deals/'+ newId +''
     When method delete
-    Then status 204     
+    Then status 204 

@@ -4,6 +4,8 @@ Feature: Dynamic Offer View Conditions Of a Deal
   Background: 
     * url dynamicOfferUrl
     * def DynamicOfferViewConditions = read('../dynamicOfferViewConditionsOfDeal/DynamicOfferViewConditionsOfDeal.json')
+    * def result = call read('classpath:dynamicOffer/get-token-DynamicOffer.feature')
+    * karate.configure('headers', { 'Authorization': result.token });
 
   Scenario: Verify Booking Date Range Condition
     

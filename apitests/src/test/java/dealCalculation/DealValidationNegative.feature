@@ -4,6 +4,8 @@ Feature: Deal Validation Negative
   Background: 
     * url dealCalcUrl
     * def CreateDealValidation = read('../dealCalculation/CreateDealValidation.json')
+    * def result = call read('classpath:dealCalculation/get-token-DealCalculation.feature')
+    * karate.configure('headers', { 'Authorization': result.token });
 
     Scenario: Verify CheckOut date > CheckIn date
     # Get Deal Validation

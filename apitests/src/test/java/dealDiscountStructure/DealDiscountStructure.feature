@@ -18,6 +18,8 @@ Feature: Deal Discount Structure Validation
  }
  """
  * def Name =  "AUTO - " + random_string(5)
+ * def result = call read('classpath:deals/get-token-Admin-Deals.feature')
+ * karate.configure('headers', { 'Authorization': result.token });
 
   Scenario: Create a discount structure
   * set DealDiscountStructureCreate.discountStructureId = UUID

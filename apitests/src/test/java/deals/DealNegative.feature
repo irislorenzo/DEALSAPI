@@ -18,8 +18,10 @@ Feature: Deal Entity negative validation
    return text;
  }
  """
- * def code =  random_string(5)
- * def Description =  random_string(7)
+ 		* def code =  random_string(5)
+ 		* def Description =  random_string(7)
+   	* def result = call read('classpath:deals/get-token-Admin-Deals.feature')
+   	* karate.configure('headers', { 'Authorization': result.token });
 
     Scenario: Create a deal without a Code
     ## Create a Deal
@@ -208,107 +210,98 @@ Feature: Deal Entity negative validation
     Then status 400   
     * match response == ["Cannot approve a deal in rejected state"]    
     
-  Scenario: Approve a Deal without Business Development Manager Role
+  #Scenario: Approve a Deal without Business Development Manager Role - BDM Role is now remove since we now have Admin that can Approve a Deal - DL20-912
      #Create a Deal
-    * set CreateDeal.code = 'APPROVE_WO_BDM_ROLE'
-    Given path 'api/v2/deals'
-    When request CreateDeal
-    When method post
-    Then status 201
-    And print Description
-    * match response == {"message":"Deal created successfully."}
-    
+    #* set CreateDeal.code = 'APPROVE_WO_BDM_ROLE'
+    #Given path 'api/v2/deals'
+    #When request CreateDeal
+    #When method post
+    #Then status 201
+    #And print Description
+    #* match response == {"message":"Deal created successfully."}
+    #
     # Get a Deal
-    Given path 'api/v2/deals'
-    When method get
-    Then status 200
-    * def newId = response.find(x => x.code == 'APPROVE_WO_BDM_ROLE').id
-    And print newId
-    
+    #Given path 'api/v2/deals'
+    #When method get
+    #Then status 200
+    #* def newId = response.find(x => x.code == 'APPROVE_WO_BDM_ROLE').id
+    #And print newId
+    #
      #Get a Deal  with specific ID
-    Given path 'api/v2/deals/'+ newId +''
-    When method get
-    Then status 200
-    
+    #Given path 'api/v2/deals/'+ newId +''
+    #When method get
+    #Then status 200
+    #
     # Submit a Deal
-    Given path 'api/deals/'+ newId + '/submit'
-    When method POST
-    Then status 204
-    
+    #Given path 'api/deals/'+ newId + '/submit'
+    #When method POST
+    #Then status 204
+    #
     # Approve a Deal
-    Given path 'api/deals/'+ newId + '/approve'
+    #Given path 'api/deals/'+ newId + '/approve'
     #Need BDM Role to approve/reject deal
     #Remove header Role = 'BusinessDevelopmentManager'
-    When method POST
-    Then status 400
-    * match response == ["User does not have rights to approve deal from awaiting approval state"]
-
+    #When method POST
+    #Then status 400
+    #* match response == ["User does not have rights to approve deal from awaiting approval state"]
+#
     # delete a Deal
-    Given path 'api/deals/'+ newId +''
-    When method delete
-    Then status 204    
+    #Given path 'api/deals/'+ newId +''
+    #When method delete
+    #Then status 204    
     
-  Scenario: Reject a Deal without Business Development Manager Role
+  #Scenario: Reject a Deal without Business Development Manager Role  - BDM Role is now remove since we now have Admin that can Approve a Deal - DL20-912 
     ## Create a Deal
-    * set CreateDeal.code = "REJECT_WO_BDM_ROLE"
-    Given path 'api/v2/deals'
-    When request CreateDeal
-    When method post
-    Then status 201
-    And print Description
-    * match response == {"message":"Deal created successfully."}
-    
+    #* set CreateDeal.code = "REJECT_WO_BDM_ROLE"
+    #Given path 'api/v2/deals'
+    #When request CreateDeal
+    #When method post
+    #Then status 201
+    #And print Description
+    #* match response == {"message":"Deal created successfully."}
+    #
     ## Get recently created Deal
-    Given path 'api/v2/deals'
-    When method get
-    Then status 200
-    * def newId = response.find(x => x.code == 'REJECT_WO_BDM_ROLE').id
-    And print newId
-    
+    #Given path 'api/v2/deals'
+    #When method get
+    #Then status 200
+    #* def newId = response.find(x => x.code == 'REJECT_WO_BDM_ROLE').id
+    #And print newId
+    #
     ## Get a Deal  with specific ID
-    Given path 'api/v2/deals/'+ newId +''
-    When method get
-    Then status 200
-    
+    #Given path 'api/v2/deals/'+ newId +''
+    #When method get
+    #Then status 200
+    #
     ## Submit a Deal
-    Given path 'api/deals/'+ newId + '/submit'
-    When method POST
-    Then status 204
-    
+    #Given path 'api/deals/'+ newId + '/submit'
+    #When method POST
+    #Then status 204
+    #
     ## Reject a Deal
-    Given path 'api/deals/'+ newId + '/reject'
+    #Given path 'api/deals/'+ newId + '/reject'
     #Need BDM Role to approve/reject deal
     #No header Role = 'BusinessDevelopmentManager'
-    When request 
-    """
-    {
-    "reason": "DEALS_AUTOMATION - REJECT DEAL"
-		}
-		"""
-    When method POST
-    Then  status 400
-    * match response == ["User does not have permission to reject deal"]
-
+    #When request 
+    #"""
+    #{
+    #"reason": "DEALS_AUTOMATION - REJECT DEAL"
+#		}
+#		"""
+    #When method POST
+    #Then  status 400
+    #* match response == ["User does not have permission to reject deal"]
+#
     ## delete a Deal
-    Given path 'api/deals/'+ newId +''
-    When method delete
-    Then status 204        
+    #Given path 'api/deals/'+ newId +''
+    #When method delete
+    #Then status 204        
                 
   	Scenario: Approve deal from Drafted State
-     #Create a Deal
-    * set CreateDeal.code = "APPROVE_FROM_DRAFT"
-    Given path 'api/v2/deals'
-    When request CreateDeal
-    When method post
-    Then status 201
-    And print Description
-    * match response == {"message":"Deal created successfully."}
-    
-    # Get a Deal
+    # Get Drafted Deal
     Given path 'api/v2/deals'
     When method get
     Then status 200
-    * def newId = response.find(x => x.code == 'APPROVE_FROM_DRAFT').id
+    * def newId = response.find(x => x.dealApprovalStatus == 'drafted').id
     And print newId
     
      #Get a Deal  with specific ID
@@ -322,34 +315,15 @@ Feature: Deal Entity negative validation
     * header Role = 'BusinessDevelopmentManager'
     When method POST
     Then status 400
-    * match response == ["Deal cannot be approved from draft state. Deal has to be submitted first"]
-
-    # delete a Deal
-    Given path 'api/deals/'+ newId +''
-    When method delete
-    Then status 204    
+    * match response == ["Deal cannot be approved from draft state. Deal has to be submitted first"]  
     
   	Scenario: Reject deal from Drafted State
-    ## Create a Deal
-    * set CreateDeal.code = "APPROVE_WO_BDM_ROLE"
-    Given path 'api/v2/deals'
-    When request CreateDeal
-    When method post
-    Then status 201
-    And print Description
-    * match response == {"message":"Deal created successfully."}
-    
-    ## Get recently created Deal
+    # Get Drafted Deal
     Given path 'api/v2/deals'
     When method get
     Then status 200
-    * def newId = response.find(x => x.code == 'APPROVE_WO_BDM_ROLE').id
+    * def newId = response.find(x => x.dealApprovalStatus == 'drafted').id
     And print newId
-    
-    ## Get a Deal  with specific ID
-    Given path 'api/v2/deals/'+ newId +''
-    When method get
-    Then status 200
     
     ## Reject a Deal
     Given path 'api/deals/'+ newId + '/reject'
@@ -363,12 +337,7 @@ Feature: Deal Entity negative validation
 		"""
     When method POST
     Then  status 400
-    * match response == ["Deal cannot move from Draft to Reject state"]
-
-    ## delete a Deal
-    Given path 'api/deals/'+ newId +''
-    When method delete
-    Then status 204      
+    * match response == ["Deal cannot move from Draft to Reject state"]   
     
   	Scenario: Submit non-existing Deal    
     # Submit a Deal
