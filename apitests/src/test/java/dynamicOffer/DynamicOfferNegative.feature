@@ -4,6 +4,8 @@ Feature: Dynamic Offer Negative Test Validation
   Background: 
     * url dynamicOfferUrl
     * def DynamicOffer = read('../dynamicOffer/DynamicOffer.json')
+    * def result = call read('classpath:dynamicOffer/get-token-DynamicOffer.feature')
+    * karate.configure('headers', { 'Authorization': result.token });
 
   Scenario: GET Dynamic Offer without Kids field   
     * param PropertyCode = 'TEST'

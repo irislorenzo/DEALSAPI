@@ -19,7 +19,9 @@ Feature: Deal Condition Entity validation
       """
     * def campaignCode =  'AUTO - ' + random_string(5)
     * def campaignCodeupdated =  'AUTOUPDATE - ' + random_string(7)
-    * def campaignUniqeGuid = 'AUTO - ' + random_string(10) 
+    * def campaignUniqeGuid = 'AUTO - ' + random_string(10)     
+    * def result = call read('classpath:deals/get-token-Admin-Deals.feature')
+    * karate.configure('headers', { 'Authorization': result.token });
 
   Scenario: Create deal campaign
     ### Create a new deal campaign 

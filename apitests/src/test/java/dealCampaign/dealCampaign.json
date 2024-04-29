@@ -29,12 +29,12 @@
   ],
   "campaignAvailability": {
     "bookingDateRange": {
-      "startDate": "2024-04-25T05:28:01.515Z",
-      "endDate": "2024-05-25T05:28:01.515Z"
+      "startDate": "2025-01-01T05:28:01.515Z",
+      "endDate": "2025-01-31T05:28:01.515Z"
     },
     "stayDateRange": {
-      "startDate": "2024-06-25T05:28:01.515Z",
-      "endDate": "2024-07-25T05:28:01.515Z"
+      "startDate": "2025-02-25T05:28:01.515Z",
+      "endDate": "2025-03-25T05:28:01.515Z"
     },
     "blackoutDateRanges": [
       {

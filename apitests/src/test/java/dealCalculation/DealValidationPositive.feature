@@ -4,6 +4,8 @@ Feature: Deal Validation Positive
   Background: 
     * url dealCalcUrl
     * def CreateDealValidation = read('../dealCalculation/CreateDealValidation.json')
+    * def result = call read('classpath:dealCalculation/get-token-DealCalculation.feature')
+    * karate.configure('headers', { 'Authorization': result.token });
     
     Scenario: Verify 15% Off Discount Draft
     # Get Deal Validation

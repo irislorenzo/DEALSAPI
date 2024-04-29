@@ -21,6 +21,8 @@ Feature: Deal content policy validation
  * def code =  random_string(5)
  * def Description =  random_string(7)
   * def Name =  random_string(7)
+ * def result = call read('classpath:deals/get-token-Admin-Deals.feature')
+ * karate.configure('headers', { 'Authorization': result.token });  
   
    	Scenario: Get All Deal Content Policy
   	#	Get all the available Content policy

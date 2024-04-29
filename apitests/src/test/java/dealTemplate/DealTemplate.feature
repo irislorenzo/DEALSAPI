@@ -7,6 +7,8 @@ Feature: Deal Template Entity validation
     * def DealTemplateSchema = read('../dealTemplate/DealTemplateSchema.json')
     * def uuid = function(){ return java.util.UUID.randomUUID() + '' }
     * def UUID = uuid()
+    * def result = call read('classpath:deals/get-token-Admin-Deals.feature')
+ 		* karate.configure('headers', { 'Authorization': result.token });
 
   Scenario: Deal template E2E
     # Create a Deal Template

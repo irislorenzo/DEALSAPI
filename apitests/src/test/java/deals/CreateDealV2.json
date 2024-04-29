@@ -4,14 +4,14 @@
   "dealStatus": "created",
   "dealType": "standard",
   "parkCode": "WWOO",
-  "dealTemplateId": "230d600c-e5c7-ee11-85f9-000d3ad01591",
+  "dealTemplateId": "24b1bdea-c5f7-ee11-aaf0-00224892c429",
         "promotionalContent": {
-            "image": "https://placekitten.com/400/300",
-            "text": "Demo Sprint Review Promotional Content",
+            "image": "",
+            "text": "TEST",
             "isNew": true
         },
         "dealContentPolicyId": "e13cc4cd-ec06-41dc-8e50-a2dfb54bb59c",
-        "discountStructureId": "5caa63d0-3bbb-ee11-be9e-000d3ad01148",
+        "discountStructureId": "79089c50-17b4-ee11-be9e-000d3ad01148",
         "brands": [
             "gday",
             "dhp"
@@ -44,24 +44,24 @@
         ],
   "dealAvailability": {
     "bookingDateRange": {
-      "startDate": "2024-05-30T00:00:00.000Z",
-      "endDate": "2024-06-30T00:00:00.000Z"
+      "startDate": "2025-01-01T00:00:00.000Z",
+      "endDate": "2025-01-30T00:00:00.000Z"
     },
     "stayDateRange": {
-      "startDate": "2024-05-30T00:00:00.000Z",
-      "endDate": "2024-06-30T00:00:00.000Z"
+      "startDate": "2025-01-16T00:00:00.000Z",
+      "endDate": "2025-01-30T00:00:00.000Z"
     },
     "blackoutDateRanges": [
       {
-        "startDate": "2024-05-01T00:00:00.000Z",
-        "endDate": "2024-05-02T00:00:00.000Z"
+        "startDate": "2024-12-01T00:00:00.000Z",
+        "endDate": "2024-12-30T00:00:00.000Z"
       }
     ]
   },
   "hidden": false,
   "promocode": "string",
-  "publishDateTime": "2024-05-25T05:51:31.015Z",
-  "withdrawalDateTime": "2024-05-25T05:51:31.015Z",
+  "publishDateTime": "2025-01-01T05:51:31.015Z",
+  "withdrawalDateTime": "2025-01-01T05:51:31.015Z",
   "checkInDays": {
     "monday": true,
     "tuesday": true,
