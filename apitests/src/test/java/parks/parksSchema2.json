@@ -33,5 +33,6 @@
 	    "reviewId": ##string,
 	    "isFeatured": ##boolean,
 	    "acceptDeposits": #boolean,
-	    "ownership": ##string
+	    "ownership": ##string,
+	    "notices": ##array
 }
