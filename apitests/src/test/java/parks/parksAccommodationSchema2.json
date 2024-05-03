@@ -22,5 +22,6 @@
     "displayName": ##string,
     "pmsName": ##number,
     "isPopular": ##boolean,
-    "ownership": ##string
+    "ownership": ##string,
+    "maxAdults": ##number
 }
