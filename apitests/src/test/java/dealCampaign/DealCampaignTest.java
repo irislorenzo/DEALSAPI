@@ -9,9 +9,14 @@ public class DealCampaignTest {
         return Karate.run("DealCampaign").relativeTo(getClass());
     }
 	
-//	@Karate.Test
-//    Karate DealCampaignParticipants() {
-//        return Karate.run("DealCampaignParticipants").relativeTo(getClass());
-//    }
+	@Karate.Test
+    Karate DealCampaignContributor() {
+        return Karate.run("DealCampaignContributor").relativeTo(getClass());
+    }
+	
+	@Karate.Test
+    Karate DealCampaignReader() {
+        return Karate.run("DealCampaignReader").relativeTo(getClass());
+    }
 	
 }

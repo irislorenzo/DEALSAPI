@@ -8,5 +8,15 @@ public class DealTemplateTest {
     Karate DealTemplate() {
         return Karate.run("DealTemplate").relativeTo(getClass());
     }
+	
+	@Karate.Test
+    Karate DealTemplateContributor() {
+        return Karate.run("DealTemplateContributor").relativeTo(getClass());
+    }
+	
+	@Karate.Test
+    Karate DealTemplateReader() {
+        return Karate.run("DealTemplateReader").relativeTo(getClass());
+    }
 
 }
