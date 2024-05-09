@@ -9,4 +9,14 @@ public class DealContentPolicyTest {
         return Karate.run("DealContentPolicy").relativeTo(getClass());
     }
 	
+	@Karate.Test
+    Karate DealContentPolicyContributor() {
+        return Karate.run("DealContentPolicyContributor").relativeTo(getClass());
+    }
+	
+	@Karate.Test
+    Karate DealContentPolicyReader() {
+        return Karate.run("DealContentPolicyReader").relativeTo(getClass());
+    }
+	
 }

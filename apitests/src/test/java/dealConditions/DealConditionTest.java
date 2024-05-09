@@ -9,5 +9,15 @@ public class DealConditionTest {
         return Karate.run("DealCondition").relativeTo(getClass());
     }
 	
+	@Karate.Test
+    Karate DealConditionContributor() {
+        return Karate.run("DealConditionContributor").relativeTo(getClass());
+    }
+	
+	@Karate.Test
+    Karate DealConditionReader() {
+        return Karate.run("DealConditionReader").relativeTo(getClass());
+    }
+	
 	
 }

@@ -8,4 +8,14 @@ public class DealDiscountStructureTest {
     Karate DealDiscountStructure() {
         return Karate.run("DealDiscountStructure").relativeTo(getClass());
     }
+	
+	@Karate.Test
+    Karate DealDiscountStructureContributor() {
+        return Karate.run("DealDiscountStructureContributor").relativeTo(getClass());
+    }
+	
+	@Karate.Test
+    Karate DealDiscountStructureReader() {
+        return Karate.run("DealDiscountStructureReader").relativeTo(getClass());
+    }
 }
