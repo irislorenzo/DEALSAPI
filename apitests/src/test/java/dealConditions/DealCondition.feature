@@ -26,6 +26,7 @@ Feature: Deal Condition Entity validation
    Scenario: Get All Condition 
  
     # Get all the available conditons
+    # UPDATE NEW
     Given path 'api/Conditions'
     When method get
     Then status 200
