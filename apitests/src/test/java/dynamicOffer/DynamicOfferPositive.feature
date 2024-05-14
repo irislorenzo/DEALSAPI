@@ -10,8 +10,8 @@ Feature: Dynamic Offer Positive Test Validation
   Scenario: Verify Base Offer on Deal
     
     * param PropertyCode = 'TEST'
-    * param Arrive = '2024-05-08'
-    * param Depart = '2024-05-10'
+    * param Arrive = '2025-01-15'
+    * param Depart = '2025-01-31'
     * param Adults = 2
     * param Kids = 0
     * param Infants = 0
@@ -23,8 +23,8 @@ Feature: Dynamic Offer Positive Test Validation
   Scenario: Verify Member Offer on Deal
 
     * param PropertyCode = 'TEST'
-    * param Arrive = '2024-05-08'
-    * param Depart = '2024-05-10'
+    * param Arrive = '2025-01-15'
+    * param Depart = '2025-01-31'
     * param Adults = 2
     * param Kids = 0
     * param Infants = 0
@@ -36,8 +36,8 @@ Feature: Dynamic Offer Positive Test Validation
   Scenario: Verify Deal Offer on Deal
 
     * param PropertyCode = 'TEST'
-    * param Arrive = '2024-05-08'
-    * param Depart = '2024-05-10'
+    * param Arrive = '2025-01-15'
+    * param Depart = '2025-01-31'
     * param Adults = 2
     * param Kids = 0
     * param Infants = 0
